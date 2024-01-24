@@ -33,3 +33,35 @@ The directory structure for each dataset is as follows:
 │   ├── <PDB_ID>_receptor.pdbqt  # Receptor ready for docking in PDBQT format
 │   └── docking_grid.json        # Docking box configuration in JSON format
 ```
+
+
+### Virtual Screening Benchmarks
+Under the `virtual_screening` directory, you will find several meticulously selected benchmark datasets:
+
+- `D4`: [Lyu, J., Wang, S., Balius, T. E., Singh, I., Levit, A., Moroz, Y. S., ... & Irwin, J. J. (2019). Ultra-large library docking for discovering new chemotypes. Nature, 566(7743), 224-229.](https://www.nature.com/articles/s41586-019-0917-9)
+- `GBA`: [Tran-Nguyen, V. K., Jacquemard, C., & Rognan, D. (2020). LIT-PCBA: an unbiased data set for machine learning and virtual screening. Journal of chemical information and modeling, 60(9), 4263-4273.](https://pubs.acs.org/doi/abs/10.1021/acs.jcim.0c00155)
+- `NSP3`: [Schuller, M., Correy, G. J., Gahbauer, S., Fearon, D., Wu, T., Díaz, R. E., ... & Ahel, I. (2021). Fragment binding to the Nsp3 macrodomain of SARS-CoV-2 identified through crystallographic screening and computational docking. Science advances, 7(16), eabf8711.](https://www.science.org/doi/full/10.1126/sciadv.abf8711)
+- `PPARG`: [Tran-Nguyen, V. K., Jacquemard, C., & Rognan, D. (2020). LIT-PCBA: an unbiased data set for machine learning and virtual screening. Journal of chemical information and modeling, 60(9), 4263-4273.](https://pubs.acs.org/doi/abs/10.1021/acs.jcim.0c00155)
+- `sigma2`: [Alon, A., Lyu, J., Braz, J. M., Tummino, T. A., Craik, V., O’Meara, M. J., ... & Kruse, A. C. (2021). Structures of the σ2 receptor enable docking for bioactive ligand discovery. Nature, 600(7890), 759-764.](https://www.nature.com/articles/s41586-021-04175-x)
+
+The following table summarizes the statistics of the datasets:
+
+| Dataset | PDB ID | N_Actives | N_Inactives | N_Total |
+|----|----|----|----|----|
+| D4 | 5WIU | 226 | 598 | 824 |
+| GBA | 5LVX | 286 | 458,205 | 458,491 |
+| NSP3 | 5RS7 | 65 | 3,515 | 3,580 |
+| PPARG | 5Y2T | 29 | 7,292 | 7,321 |
+| sigma2 | 7M94 | 228 | 596 | 824 |
+
+The directory structure for each dataset is as follows:
+```
+<DataSetName>
+├── docking_grid.json          # Docking box configuration in JSON format
+├── <PDB_ID>_receptor.pdbqt    # Receptor ready for docking in PDBQT format
+├── <PDB_ID>_receptor.pdb      # Receptor in PDB format
+├── inactives.sdf              # Inactive molecules in SDF format
+└── actives.sdf                # Active molecules in SDF format
+```
+
+**ATTENTION**: Since there are too many inactive molecules in `GBA` dataset, the `inactives.sdf` file is too large to exceed the limit of Github, so please download from [GBA-inactives](https://bohrium-api.dp.tech/ds-dl/GBA-inactives-ap7r-v1.zip) when using it.
