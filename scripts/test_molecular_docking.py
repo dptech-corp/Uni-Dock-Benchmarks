@@ -20,7 +20,7 @@ from utils import makedirs
 from utils import calc_rmsd
 
 
-def main_cli(config: Dict[str, Any]):
+def main(config: Dict[str, Any]):
     results = {}
     results_csv = "dataset,pdbid,mode,round,cost_time,status,Top1RMSD,Top1Success,Top3Success,Top10Success\n"
     rootdir = Path(config.get("rootdir", ".")).resolve()
@@ -118,7 +118,7 @@ def main_cli(config: Dict[str, Any]):
         
     return 
 
-def main():
+def main_cli():
     import argparse
     parser = argparse.ArgumentParser()
     parser.add_argument("--rootdir", type=str, default=None)
@@ -139,9 +139,9 @@ def main():
     
     config = {"rootdir": rootdir, "savedir": args.savedir, "round": args.round}
     
-    main_cli(config)
+    main(config)
         
     
 if __name__ == "__main__":
-    main()
+    main_cli()
                 

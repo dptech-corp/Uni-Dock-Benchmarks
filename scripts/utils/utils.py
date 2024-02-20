@@ -2,11 +2,6 @@
 import datetime, random, string, os
 from pathlib import Path
 from functools import wraps
-import logging
-logging.basicConfig(
-    level=logging.DEBUG,
-    format='[%(asctime)s][%(levelname)s]%(message)s',
-)
 
 
 def generate_random_string(length:int=4) -> str:
