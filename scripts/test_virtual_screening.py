@@ -21,7 +21,7 @@ logging.basicConfig(
 from utils import makedirs
 
 
-def main_cli(config):
+def main(config):
     results_csv = "dataset,mode,cost_time,avr_time\n"
     rootdir = Path(config.get("rootdir", ".")).resolve()
     # check savedir
@@ -97,7 +97,7 @@ def main_cli(config):
     return 
 
 
-def main():
+def main_cli():
     import argparse
     parser = argparse.ArgumentParser()
     parser.add_argument("--rootdir", type=str, default=None)
@@ -124,8 +124,8 @@ def main():
     
     config = {"rootdir": rootdir, "savedir": args.savedir, "round": args.round}
     
-    main_cli(config)
+    main(config)
     
 
 if __name__ == "__main__":
-    main()
+    main_cli()
