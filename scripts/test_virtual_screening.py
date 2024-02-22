@@ -5,7 +5,6 @@ import subprocess as sp
 import traceback
 import time
 import json
-import wget
 import glob
 import shutil
 
@@ -74,7 +73,7 @@ def main(config):
                     "--scoring", "vina",
                     "--num_modes", "1",
                     "--verbosity", "2",
-                    "--refine_step", "5",
+                    "--refine_step", "3",
                     "--keep_nonpolar_H",
                     "--seed", "181129",
                 ]
