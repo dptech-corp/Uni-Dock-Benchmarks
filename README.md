@@ -1,13 +1,16 @@
 # Uni-Dock-Benchmarks
-The Uni-Dock-Benchmarks repository provides a comprehensive collection of datasets for benchmarking the Uni-Dock docking system's performance and accuracy. 
+
+The Uni-Dock-Benchmarks repository provides a comprehensive collection of datasets for benchmarking the Uni-Dock docking system's performance and accuracy.
 
 ## Data
+
 Benchmark data within the repository is categorized into two primary sections:
 
 - `molecular_docking`
 - `virtual_screening`
 
 ### Molecular Docking Benchmarks
+
 Under the `molecular_docking` directory, you will find several well-known benchmark datasets:
 
 - `Astex`: [Hartshorn, M. J., Verdonk, M. L., Chessari, G., Brewerton, S. C., Mooij, W. T., Mortenson, P. N., & Murray, C. W. (2007). Diverse, high-quality test set for the validation of protein− ligand docking performance. Journal of medicinal chemistry, 50(4), 726-741.](https://pubs.acs.org/doi/full/10.1021/jm061277y)
@@ -16,11 +19,10 @@ Under the `molecular_docking` directory, you will find several well-known benchm
 
 We performed the following preparation steps for the proteins and ligands in the datasets.
 
-- After obtaining the protein structures from the RCSB database based on the PDB code, we retained the crystal waters and cofactors that affect the binding mode and completed missing protein side chains and lost hydrogen atoms. 
-- For ligands, we searched the RCSB database for the isomer SMILES corresponding to the PDB code and determined the correct protonation state according to the receptor pocket environment. Then, we generated 3D conformations for each ligand. 
+- After obtaining the protein structures from the RCSB database based on the PDB code, we retained the crystal waters and cofactors that affect the binding mode and completed missing protein side chains and lost hydrogen atoms.
+- For ligands, we searched the RCSB database for the isomer SMILES corresponding to the PDB code and determined the correct protonation state according to the receptor pocket environment. Then, we generated 3D conformations for each ligand.
 
 After excluding systems with failed preparation and those with large natural products or polypeptide ligands, **84** systems from `Astex`, **271** systems from `CASF-2016` and **428** systems from `PoseBuster` were used as benchmarks.
-  
 
 The directory structure for each dataset is as follows:
 
@@ -34,8 +36,8 @@ The directory structure for each dataset is as follows:
 │   └── docking_grid.json        # Docking box configuration in JSON format
 ```
 
-
 ### Virtual Screening Benchmarks
+
 Under the `virtual_screening` directory, you will find several meticulously selected benchmark datasets:
 
 - `D4`: [Lyu, J., Wang, S., Balius, T. E., Singh, I., Levit, A., Moroz, Y. S., ... & Irwin, J. J. (2019). Ultra-large library docking for discovering new chemotypes. Nature, 566(7743), 224-229.](https://www.nature.com/articles/s41586-019-0917-9)
@@ -55,6 +57,7 @@ The following table summarizes the statistics of the datasets:
 | sigma2 | 7M94 | 228 | 596 | 824 |
 
 The directory structure for each dataset is as follows:
+
 ```
 <DataSetName>
 ├── docking_grid.json          # Docking box configuration in JSON format
@@ -64,4 +67,4 @@ The directory structure for each dataset is as follows:
 └── actives.sdf                # Active molecules in SDF format
 ```
 
-**ATTENTION**: Since there are too many inactive molecules in `GBA` dataset, the `inactives.sdf` file is too large to exceed the limit of Github, so please download from [GBA-inactives](https://bohrium-api.dp.tech/ds-dl/GBA-inactives-ap7r-v1.zip) when using it.
+**ATTENTION**: Since there are too many inactive molecules in `GBA` dataset, the `inactives.sdf` file exceeds the limit of Github, so please download from [GBA-inactives](https://bohrium-api.dp.tech/ds-dl/GBA-inactives-ap7r-v1.zip) and unzip before using it.
