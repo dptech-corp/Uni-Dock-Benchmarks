@@ -33,30 +33,31 @@ def main(config: Dict[str, Any]):
     savedir = Path(config.get("savedir", "results")).resolve()
     os.makedirs(savedir, exist_ok=True)
     round_num = config.get("round", 3)
+    search_mode_list = config.get("srarch_mode_list", ["fast", "balance", "detail"])
     unidock_args = copy.deepcopy(DEFAULT_UNIDOCK_ARGS)
     unidock_args.update(config.get("unidock_args", dict()))
 
-    if not os.path.exists(f"{rootdir}/molecular_docking"):
-        logging.error(f"rootdir: {rootdir}/molecular_docking not found!")
+    if not os.path.exists(f"{rootdir}/data/molecular_docking"):
+        logging.error(f"rootdir: {rootdir}/data/molecular_docking not found!")
         logging.info(os.listdir(rootdir))
         exit(-1)
 
     results = {}
     results_csv = "dataset,pdbid,mode,round,cost_time,status,Top1RMSD,Top1Success,Top3Success,Top10Success\n"
     # get datasets
-    for _,datasets,_ in os.walk(f"{rootdir}/molecular_docking"): break
+    for _,datasets,_ in os.walk(f"{rootdir}/data/molecular_docking"): break
     for dataset in datasets:
         results[dataset] = {}
         # check dataset
-        for _,pdbids,_ in os.walk(f"{rootdir}/molecular_docking/{dataset}"): break
-        for search_mode in ["fast", "balance", "detail"]:
+        for _,pdbids,_ in os.walk(f"{rootdir}/data/molecular_docking/{dataset}"): break
+        for search_mode in search_mode_list:
             for round in range(round_num):
                 outdir = f"{savedir}/{dataset}-{search_mode}-{round}"
                 os.makedirs(outdir, exist_ok=True)
                 for pdbid in tqdm(pdbids, desc=f"{dataset}-{search_mode}-{round}"):
                     try:
                         # input files and params
-                        datadir = Path(f"{rootdir}/molecular_docking/{dataset}/{pdbid}")
+                        datadir = Path(f"{rootdir}/data/molecular_docking/{dataset}/{pdbid}")
                         ligand = Path(f"{datadir}/{pdbid}_ligand_prep.sdf")
                         receptor = Path(f"{datadir}/{pdbid}_receptor.pdbqt")
                         with open(f"{datadir}/docking_grid.json", "r") as f:
@@ -120,7 +121,7 @@ def main(config: Dict[str, Any]):
     info = "dataset,mode,round,success_rate,avr_time\n"
     logging.info("[dataset][mode]\t[success]\t[avr_time]")
     for dataset in results:
-        for mode in ["fast", "balance", "detail"]:
+        for mode in search_mode_list:
             for round in range(round_num):
                 success_rate = sum(results[dataset][pdbid][mode][round]["RMSD"][0] < 2.0 \
                     for pdbid in results[dataset]) / len(results[dataset])

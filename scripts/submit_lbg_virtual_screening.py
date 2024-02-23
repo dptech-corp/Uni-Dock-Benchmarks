@@ -7,31 +7,29 @@ import subprocess as sp
 
 
 scass_type = "c16_m62_1 * NVIDIA T4"
-job_name = "test_molecular_docking_unidock1.0_t4"
+job_name = "test_virtual_screening_unidock1.0_t4"
 
 submit_dict = {
     "project_id": 11053,
     "dataset_path": ["/bohr/uni-dock-testdata-tn4t/v4"],
-    "command": "python test_molecular_docking.py --config_file config.json",
-    "out_files": ["results_dir/results.json", "results_dir/results.csv", "results_dir/metrics.csv"],
+    "command": "python test_virtual_screening.py --config_file config.json",
+    "out_files": ["results_dir/results.csv"],
     "platform": "ali",
     "on_demand": 1,
     "disk_size": 200,
     "image_name": "registry.dp.tech/dp/vina_pipeline:0.1.10",
 }
 
-def submit_molecular_docking():
+def submit_virtual_screening():
     tmpdir = Path(f"tmp_{uuid.uuid4().hex}")
     tmpdir.mkdir(parents=True, exist_ok=True)
     inputs_dir = tmpdir / "inputs"
     inputs_dir.mkdir()
     shutil.copytree(os.path.join(os.path.dirname(__file__), "utils"), inputs_dir / "utils")
-    shutil.copyfile(os.path.join(os.path.dirname(__file__), "test_molecular_docking.py"), inputs_dir / "test_molecular_docking.py")
+    shutil.copyfile(os.path.join(os.path.dirname(__file__), "test_virtual_screening.py"), inputs_dir / "test_virtual_screening.py")
     run_config = {
         "rootdir": submit_dict["dataset_path"][0], 
         "savedir": "results_dir", 
-        "round": 3,
-        "srarch_mode_list": ["fast", "balance", "detail"],
     }
     with open(inputs_dir / "config.json", "w") as f:
         json.dump(run_config, f)
@@ -50,4 +48,4 @@ def submit_molecular_docking():
 
 
 if __name__ == "__main__":
-    submit_molecular_docking()
+    submit_virtual_screening()
