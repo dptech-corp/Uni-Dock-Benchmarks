@@ -6,18 +6,14 @@ import json
 import subprocess as sp
 
 
-scass_type = "c16_m62_1 * NVIDIA T4"
-job_name = "test_molecular_docking_unidock1.0_t4"
-
 submit_dict = {
-    "project_id": 11053,
-    "dataset_path": ["/bohr/uni-dock-testdata-tn4t/v4"],
-    "command": "python test_molecular_docking.py --config_file config.json",
+    "machine_type": "c16_m62_1 * NVIDIA T4",
+    "command": "pip install wget && python test_molecular_docking.py --config_file config.json",
     "out_files": ["results_dir/results.json", "results_dir/results.csv", "results_dir/metrics.csv"],
     "platform": "ali",
     "on_demand": 1,
     "disk_size": 200,
-    "image_name": "registry.dp.tech/dp/vina_pipeline:0.1.10",
+    "image_name": "dptechnology/unidock_tools:1.0.0",
 }
 
 def submit_molecular_docking():
@@ -35,9 +31,7 @@ def submit_molecular_docking():
     }
     with open(inputs_dir / "config.json", "w") as f:
         json.dump(run_config, f)
-    
-    submit_dict["machine_type"] = scass_type
-    submit_dict["job_name"] = job_name
+
     with open(tmpdir / "submit.json", "w") as f:
         json.dump(submit_dict, f)
     cmd = f"lbg job submit -i {tmpdir / 'submit.json'} -p {inputs_dir}"
@@ -50,4 +44,15 @@ def submit_molecular_docking():
 
 
 if __name__ == "__main__":
+    import argparse
+    parser = argparse.ArgumentParser()
+    parser.add_argument("-pid", "--project_id", type=int, required=True)
+    parser.add_argument("-j", "--job_name", type=str, default="test_virtual_screening")
+    parser.add_argument("--dataset_path", type=str, nargs="+", default=["/bohr/uni-dock-testdata-tn4t/v4"])
+    args = parser.parse_args()
+
+    submit_dict["project_id"] = args.project_id
+    submit_dict["job_name"] = args.job_name
+    submit_dict["dataset_path"] = args.dataset_path
+
     submit_molecular_docking()
