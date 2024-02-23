@@ -88,23 +88,23 @@ def main(config):
             except:
                 logging.error(traceback.format_exc())
                 results_csv += f"{dataset},{search_mode},-1,-1\n"
-                    
+
         shutil.rmtree(temp_dir)
-    
+
     with open(f"{savedir}/results.csv", "w") as f:
         f.write(results_csv)
-        
-    return 
+
+    return
 
 
 def main_cli():
     import argparse
     parser = argparse.ArgumentParser()
     parser.add_argument("--rootdir", type=str, default=None)
-    parser.add_argument("--savedir", type=str, default=None)
+    parser.add_argument("--savedir", type=str, default="results")
     parser.add_argument("--round", type=int, default=3)
     args = parser.parse_args()
-    
+
     if args.rootdir is None:
         if os.path.exists("../data/virtual_screening"):
             rootdir = Path("..").resolve()
@@ -112,20 +112,20 @@ def main_cli():
             rootdir = Path(".").resolve()
     else:
         rootdir = Path(args.rootdir).resolve()
-        if not os.path.exists(f"{rootdir}/data/virtual_screening"):
-            logging.error(f"rootdir: {rootdir}/data/virtual_screening not found!")
-            exit(-1)
-    
+    if not os.path.exists(f"{rootdir}/data/virtual_screening"):
+        logging.error(f"rootdir: {rootdir}/data/virtual_screening not found!")
+        exit(-1)
+
     if not os.path.exists(f"{rootdir}/data/virtual_screening/GBA/inactives.sdf"):
         wget.download(
-            "https://bohrium-api.dp.tech/ds-dl/GBA-inactives-ap7r-v1.zip", 
+            "https://bohrium-api.dp.tech/ds-dl/GBA-inactives-ap7r-v1.zip",
             out=f"{rootdir}/data/virtual_screening/GBA/inactives.zip")
         sp.run(f"unzip {rootdir}/data/virtual_screening/GBA/inactives.zip -d {rootdir}/data/virtual_screening/GBA".split())
-    
+
     config = {"rootdir": rootdir, "savedir": args.savedir, "round": args.round}
-    
+
     main(config)
-    
+
 
 if __name__ == "__main__":
     main_cli()
