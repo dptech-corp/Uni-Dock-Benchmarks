@@ -111,13 +111,13 @@ def main(config: Dict[str, Any]):
                             "status": -1,
                             "RMSD": None,
                         }
-                    
+
     with open(f"{savedir}/results.json", "w") as f:
         json.dump(results, f, indent=4)
-    
+
     with open(f"{savedir}/results.csv", "w") as f:
         f.write(results_csv)
-        
+
     info = "dataset,mode,round,success_rate,avr_time\n"
     logging.info("[dataset][mode]\t[success]\t[avr_time]")
     for dataset in results:
@@ -129,18 +129,18 @@ def main(config: Dict[str, Any]):
                     for pdbid in results[dataset]) / len(results[dataset])
                 info += f"{dataset},{mode},{round},{success_rate:.6f},{avr_time:.6f}\n"
                 logging.info(f"[{dataset}][{mode}][{round}]\t{success_rate:.6f}\t{avr_time:.6f}")
-                
+
     with open(f"{savedir}/metrics.csv", "w") as f:
         f.write(info)
-        
-    return 
+
+    return
 
 def main_cli():
     import argparse
     parser = argparse.ArgumentParser()
     parser.add_argument("--config_file", type=str, default=None)
     parser.add_argument("--rootdir", type=str, default=None)
-    parser.add_argument("--savedir", type=str, default=None)
+    parser.add_argument("--savedir", type=str, default="results")
     parser.add_argument("--round", type=int, default=3)
     args = parser.parse_args()
     
@@ -162,8 +162,7 @@ def main_cli():
         config = {"rootdir": rootdir, "savedir": args.savedir, "round": args.round}
     
     main(config)
-        
-    
+
+
 if __name__ == "__main__":
     main_cli()
-                

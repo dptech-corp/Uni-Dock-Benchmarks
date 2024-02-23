@@ -127,8 +127,8 @@ def main(config):
     
     with open(f"{savedir}/results.csv", "w") as f:
         f.write(results_csv)
-        
-    return 
+
+    return
 
 
 def main_cli():
@@ -136,7 +136,7 @@ def main_cli():
     parser = argparse.ArgumentParser()
     parser.add_argument("--config_file", type=str, default=None)
     parser.add_argument("--rootdir", type=str, default=None)
-    parser.add_argument("--savedir", type=str, default=None)
+    parser.add_argument("--savedir", type=str, default="results")
     args = parser.parse_args()
 
     if args.config_file is not None:
@@ -163,7 +163,7 @@ def main_cli():
         config = {"rootdir": rootdir, "savedir": args.savedir}
     
     main(config)
-    
+
 
 if __name__ == "__main__":
     main_cli()
