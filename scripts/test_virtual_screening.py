@@ -46,7 +46,7 @@ def main(config):
         logging.info(os.listdir(rootdir))
         exit(-1)
 
-    results_csv = "dataset,mode,cost_time,avg_time_per_ligand,ef_0.005,ef_0.01,ef_0.05,ef_0.1,ef_0.2\n"
+    results_csv = "dataset,mode,total_num,success_num,cost_time,avg_time_per_ligand,ef_0.005,ef_0.01,ef_0.05,ef_0.1,ef_0.2\n"
     # get datasets
     for _,datasets,_ in os.walk(f"{rootdir}/data/virtual_screening"): break
     for dataset in datasets:
@@ -67,6 +67,8 @@ def main(config):
                 with open(Path(f"{temp_dir}/inactive-{idx}.sdf"), "w") as f:
                     f.write(inactive + "$$$$\n")
                 ligand_path_list.append(f"{temp_dir}/inactive-{idx}.sdf")
+        total_num = len(ligand_path_list)
+        logging.info(f"Ligands num: {total_num}")
         with open(Path(f"{temp_dir}/ligand_list.txt"), "w") as f:
             f.write("\n".join(ligand_path_list))
         # check dataset
@@ -108,6 +110,7 @@ def main(config):
 
                 # calc
                 result_ligands = glob.glob(f"{outdir}/*_out.sdf")
+                success_num = len(result_ligands)
                 label_list, score_list = [], []
                 for result_ligand in result_ligands:
                     label = 1 if Path(result_ligand).stem.startswith("active") else 0
@@ -117,10 +120,10 @@ def main(config):
                 
                 ef_scores = ef_score(label_list, score_list, EF_FRACTION_LIST)
                 # save results
-                results_csv += f"{dataset},{search_mode},{cost_time},{cost_time/len(ligand_path_list)},{ef_scores[0]},{ef_scores[1]},{ef_scores[2]},{ef_scores[3]},{ef_scores[4]}\n"
+                results_csv += f"{dataset},{search_mode},{total_num},{success_num},{cost_time},{cost_time/len(ligand_path_list)},{ef_scores[0]},{ef_scores[1]},{ef_scores[2]},{ef_scores[3]},{ef_scores[4]}\n"
             except:
                 logging.error(traceback.format_exc())
-                results_csv += f"{dataset},{search_mode},-1,-1,0,0,0,0,0\n"
+                results_csv += f"{dataset},{search_mode},0,0,-1,-1,0,0,0,0,0\n"
                     
         shutil.rmtree(temp_dir)
         logging.info(f"dataset {dataset} finished")
