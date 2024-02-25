@@ -79,12 +79,10 @@ def main(config: Dict[str, Any]):
                         ]
                         for k, v in unidock_args.items():
                             cmd += [f"--{k}", f"{v}"]
-                        print(cmd)
                         # run
                         start_time = time.time()
                         status = sp.run(cmd, encoding="utf-8", capture_output=True)
                         end_time = time.time()
-                        logging.debug(status.stdout)
                         if status.returncode != 0:
                             logging.error(status.stderr)
                         cost_time = end_time - start_time
@@ -124,9 +122,9 @@ def main(config: Dict[str, Any]):
         for mode in search_mode_list:
             for round in range(round_num):
                 success_rate = sum(results[dataset][pdbid][mode][round]["RMSD"][0] < 2.0 \
-                    for pdbid in results[dataset]) / len(results[dataset])
+                    for pdbid in results[dataset] if results[dataset][pdbid][mode][round]["RMSD"]) / len(results[dataset])
                 avr_time = sum(results[dataset][pdbid][mode][round]["cost_time"] \
-                    for pdbid in results[dataset]) / len(results[dataset])
+                    for pdbid in results[dataset] if results[dataset][pdbid][mode][round]["cost_time"]) / len(results[dataset])
                 info += f"{dataset},{mode},{round},{success_rate:.6f},{avr_time:.6f}\n"
                 logging.info(f"[{dataset}][{mode}][{round}]\t{success_rate:.6f}\t{avr_time:.6f}")
 

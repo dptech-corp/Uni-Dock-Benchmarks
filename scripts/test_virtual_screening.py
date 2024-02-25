@@ -98,12 +98,10 @@ def main(config):
                 ]
                 for k, v in unidock_args.items():
                     cmd += [f"--{k}", f"{v}"]
-                print(cmd)
                 # run
                 start_time = time.time()
                 status = sp.run(cmd, capture_output=True, encoding="utf-8")
                 end_time = time.time()
-                logging.debug(status.stdout)
                 if status.returncode != 0:
                     logging.error(status.stderr)
                 cost_time = end_time - start_time
