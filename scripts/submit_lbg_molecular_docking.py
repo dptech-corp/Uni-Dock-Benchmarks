@@ -6,6 +6,16 @@ import json
 import subprocess as sp
 
 
+scass_type_dict = {
+    "t4": "c16_m62_1 * NVIDIA T4", # T4
+    "2080ti": "c12_m46_1 * NVIDIA GPU B", # 2080Ti?
+    "v100": "1 * NVIDIA V100_32g", # V100
+    "3090": "c6_m64_1 * NVIDIA 3090", # 3090
+    # A800/A100
+    "4090": "c6_m60_1 * NVIDIA 4090", # 4090
+    # L40
+}
+
 submit_dict = {
     "machine_type": "c16_m62_1 * NVIDIA T4",
     "command": "pip install wget && python test_molecular_docking.py --config_file config.json",
@@ -13,7 +23,7 @@ submit_dict = {
     "platform": "ali",
     "on_demand": 1,
     "disk_size": 200,
-    "image_name": "dptechnology/unidock_tools:1.0.0",
+    "image_name": "dptechnology/unidock_tools:latest",
 }
 
 def submit_molecular_docking():
@@ -32,13 +42,17 @@ def submit_molecular_docking():
     with open(inputs_dir / "config.json", "w") as f:
         json.dump(run_config, f)
 
-    with open(tmpdir / "submit.json", "w") as f:
-        json.dump(submit_dict, f)
-    cmd = f"lbg job submit -i {tmpdir / 'submit.json'} -p {inputs_dir}"
-    resp = sp.run(cmd, shell=True, capture_output=True, encoding="utf-8")
-    print(resp.stdout)
-    if resp.returncode != 0:
-        print(resp.stderr)
+    job_name = submit_dict["job_name"]
+    for gpu_name, scass_type in scass_type_dict.items():
+        submit_dict["machine_type"] = scass_type
+        submit_dict["job_name"] = f'{job_name}_{gpu_name}'
+        with open(tmpdir / "submit.json", "w") as f:
+            json.dump(submit_dict, f)
+        cmd = f"lbg job submit -i {tmpdir / 'submit.json'} -p {inputs_dir}"
+        resp = sp.run(cmd, shell=True, capture_output=True, encoding="utf-8")
+        print(resp.stdout)
+        if resp.returncode != 0:
+            print(resp.stderr)
 
     shutil.rmtree(tmpdir)
 
@@ -48,7 +62,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("-pid", "--project_id", type=int, required=True)
     parser.add_argument("-j", "--job_name", type=str, default="test_virtual_screening")
-    parser.add_argument("--dataset_path", type=str, nargs="+", default=["/bohr/uni-dock-testdata-tn4t/v4"])
+    parser.add_argument("--dataset_path", type=str, nargs="+", default=["/bohr/uni-dock-testdata-tn4t/v5"])
     args = parser.parse_args()
 
     submit_dict["project_id"] = args.project_id
