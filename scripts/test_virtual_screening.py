@@ -37,7 +37,7 @@ def main(config):
     rootdir = Path(config.get("rootdir", ".")).resolve()
     savedir = Path(config.get("savedir", "results")).resolve()
     os.makedirs(savedir, exist_ok=True)
-    search_mode_list = config.get("srarch_mode_list", ["fast", "balance", "detail"])
+    search_mode_list = config.get("search_mode_list", ["fast", "balance", "detail"])
     unidock_args = copy.deepcopy(DEFAULT_UNIDOCK_ARGS)
     unidock_args.update(config.get("unidock_args", dict()))
 
@@ -49,6 +49,9 @@ def main(config):
     results_csv = "dataset,mode,total_num,success_num,cost_time,avg_time_per_ligand,ef_0.005,ef_0.01,ef_0.05,ef_0.1,ef_0.2\n"
     # get datasets
     for _,datasets,_ in os.walk(f"{rootdir}/data/virtual_screening"): break
+    if config.get("dataset_names"):
+        datasets = [d for d in datasets if d in config.get("dataset_names", [])]
+    logging.info(f"Running datasets: {datasets}")
     for dataset in datasets:
         # split data
         temp_dir = makedirs(prefix=f"{savedir}/{dataset}", date=True, randomID=True)
@@ -119,6 +122,7 @@ def main(config):
                 ef_scores = ef_score(label_list, score_list, EF_FRACTION_LIST)
                 # save results
                 results_csv += f"{dataset},{search_mode},{total_num},{success_num},{cost_time},{cost_time/len(ligand_path_list)},{ef_scores[0]},{ef_scores[1]},{ef_scores[2]},{ef_scores[3]},{ef_scores[4]}\n"
+                shutil.rmtree(outdir, ignore_errors=True)
             except:
                 logging.error(traceback.format_exc())
                 results_csv += f"{dataset},{search_mode},0,0,-1,-1,0,0,0,0,0\n"
