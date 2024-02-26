@@ -84,6 +84,7 @@ def main(config: Dict[str, Any]):
                         status = sp.run(cmd, encoding="utf-8", capture_output=True)
                         end_time = time.time()
                         if status.returncode != 0:
+                            logging.info(status.stdout)
                             logging.error(status.stderr)
                         cost_time = end_time - start_time
                         # calc rmsd

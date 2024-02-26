@@ -106,6 +106,7 @@ def main(config):
                 status = sp.run(cmd, capture_output=True, encoding="utf-8")
                 end_time = time.time()
                 if status.returncode != 0:
+                    logging.info(status.stdout)
                     logging.error(status.stderr)
                 cost_time = end_time - start_time
 
