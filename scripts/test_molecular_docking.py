@@ -85,7 +85,7 @@ def main(config: Dict[str, Any]):
                         end_time = time.time()
                         if status.returncode != 0:
                             logging.info(status.stdout)
-                            logging.error(status.stderr)
+                            raise KeyError(status.stderr)
                         cost_time = end_time - start_time
                         # calc rmsd
                         out_ligand = Path(f"{outdir}/{pdbid}_ligand_prep_out.sdf")
@@ -118,16 +118,18 @@ def main(config: Dict[str, Any]):
     with open(f"{savedir}/results.csv", "w") as f:
         f.write(results_csv)
 
-    info = "dataset,mode,round,success_rate,avr_time\n"
+    info = "dataset,mode,round,failed_num,total_num,success_rate,success_rate_rmsd2.0,avr_time\n"
     logging.info("[dataset][mode]\t[success]\t[avr_time]")
     for dataset in results:
         for mode in search_mode_list:
             for round in range(round_num):
+                failed_num = sum(1 for pdbid in results[dataset] if not results[dataset][pdbid][mode][round]["RMSD"])
+                total_num = len(results[dataset].keys())
                 success_rate = sum(results[dataset][pdbid][mode][round]["RMSD"][0] < 2.0 \
                     for pdbid in results[dataset] if results[dataset][pdbid][mode][round]["RMSD"]) / len(results[dataset])
                 avr_time = sum(results[dataset][pdbid][mode][round]["cost_time"] \
                     for pdbid in results[dataset] if results[dataset][pdbid][mode][round]["cost_time"]) / len(results[dataset])
-                info += f"{dataset},{mode},{round},{success_rate:.6f},{avr_time:.6f}\n"
+                info += f"{dataset},{mode},{round},{failed_num},{total_num},{(1-failed_num/total_num):.3f},{success_rate:.6f},{avr_time:.6f}\n"
                 logging.info(f"[{dataset}][{mode}][{round}]\t{success_rate:.6f}\t{avr_time:.6f}")
 
     with open(f"{savedir}/metrics.csv", "w") as f:
