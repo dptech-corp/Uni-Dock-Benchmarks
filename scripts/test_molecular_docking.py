@@ -101,6 +101,7 @@ def main(config: Dict[str, Any]):
                         }
                         results_csv += f"{dataset},{pdbid},{search_mode},{round},{cost_time},{status.returncode},"
                         results_csv += f"{rmsd[0]},{rmsd[0] < 2.0},{any(r < 2.0 for r in rmsd[:3])},{any(r < 2.0 for r in rmsd)}\n"
+                        logging.info(f"{pdbid} finished")
                         out_ligand.unlink(missing_ok=True)
                     except:
                         logging.error(traceback.format_exc())
