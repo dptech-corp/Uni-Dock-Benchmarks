@@ -23,7 +23,7 @@ submit_dict = {
     "platform": "ali",
     "on_demand": 1,
     "disk_size": 200,
-    "image_name": "dptechnology/unidock_tools:sha-9a85585",
+    "image_name": "dptechnology/unidock_tools:latest",
 }
 
 def submit_molecular_docking():
