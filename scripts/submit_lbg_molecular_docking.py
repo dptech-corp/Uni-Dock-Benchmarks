@@ -18,12 +18,12 @@ scass_type_dict = {
 
 submit_dict = {
     "machine_type": "c16_m62_1 * NVIDIA T4",
-    "command": "pip install wget && python test_molecular_docking.py --config_file config.json",
-    "out_files": ["results_dir/results.json", "results_dir/results.csv", "results_dir/metrics.csv"],
+    "command": "python test_molecular_docking.py --config_file config.json",
+    "out_files": ["/tmp/results_dir/results.json", "/tmp/results_dir/results.csv", "/tmp/results_dir/metrics.csv"],
     "platform": "ali",
     "on_demand": 1,
     "disk_size": 200,
-    "image_name": "dptechnology/unidock_tools:latest",
+    "image_name": "dptechnology/unidock_tools:sha-9a85585",
 }
 
 def submit_molecular_docking():
@@ -35,7 +35,7 @@ def submit_molecular_docking():
     shutil.copyfile(os.path.join(os.path.dirname(__file__), "test_molecular_docking.py"), inputs_dir / "test_molecular_docking.py")
     run_config = {
         "rootdir": submit_dict["dataset_path"][0], 
-        "savedir": "results_dir", 
+        "savedir": "/tmp/results_dir", 
         "round": 3,
         "srarch_mode_list": ["fast", "balance", "detail"],
     }
@@ -62,7 +62,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("-pid", "--project_id", type=int, required=True)
     parser.add_argument("-j", "--job_name", type=str, default="test_virtual_screening")
-    parser.add_argument("--dataset_path", type=str, nargs="+", default=["/bohr/uni-dock-testdata-tn4t/v5"])
+    parser.add_argument("--dataset_path", type=str, nargs="+", default=["/bohr/uni-dock-testdata-tn4t/v6"])
     args = parser.parse_args()
 
     submit_dict["project_id"] = args.project_id

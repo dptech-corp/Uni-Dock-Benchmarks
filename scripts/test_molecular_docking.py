@@ -85,7 +85,7 @@ def main(config: Dict[str, Any]):
                         end_time = time.time()
                         if status.returncode != 0:
                             logging.info(status.stdout)
-                            raise KeyError(status.stderr)
+                            logging.error(status.stderr)
                         cost_time = end_time - start_time
                         # calc rmsd
                         out_ligand = Path(f"{outdir}/{pdbid}_ligand_prep_out.sdf")

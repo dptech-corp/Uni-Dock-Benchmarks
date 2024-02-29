@@ -7,7 +7,6 @@ import time
 import json
 import glob
 import shutil
-import wget
 from tqdm import tqdm
 
 import sys
@@ -19,7 +18,7 @@ logging.basicConfig(
     format='[%(asctime)s][%(levelname)s]%(message)s',
 )
 
-from utils import makedirs, read_unidock_score, ef_score
+from utils import makedirs
 
 
 DEFAULT_UNIDOCK_ARGS = {
@@ -46,7 +45,7 @@ def main(config):
         logging.info(os.listdir(rootdir))
         exit(-1)
 
-    results_csv = "dataset,mode,total_num,success_num,cost_time,avg_time_per_ligand,ef_0.005,ef_0.01,ef_0.05,ef_0.1,ef_0.2\n"
+    results_csv = "dataset,mode,total_num,success_num,cost_time,avg_time_per_ligand\n"
     # get datasets
     for _,datasets,_ in os.walk(f"{rootdir}/data/virtual_screening"): break
     if config.get("dataset_names"):
@@ -107,26 +106,26 @@ def main(config):
                 end_time = time.time()
                 if status.returncode != 0:
                     logging.info(status.stdout)
-                    raise KeyError(status.stderr)
+                    logging.error(status.stderr)
                 cost_time = end_time - start_time
+                logging.info(f"dataset {dataset} mode {search_mode} cost time: {cost_time}")
 
-                # calc
+                # save results
                 result_ligands = glob.glob(f"{outdir}/*_out.sdf")
                 success_num = len(result_ligands)
-                label_list, score_list = [], []
+                logging.info(f"dataset {dataset} mode {search_mode} success num: {success_num}")
+                content_list = []
                 for result_ligand in result_ligands:
-                    label = 1 if Path(result_ligand).stem.startswith("active") else 0
-                    score = read_unidock_score(result_ligand)[0]
-                    label_list.append(label)
-                    score_list.append(score)
-                
-                ef_scores = ef_score(label_list, score_list, EF_FRACTION_LIST)
-                # save results
-                results_csv += f"{dataset},{search_mode},{total_num},{success_num},{cost_time},{cost_time/len(ligand_path_list)},{ef_scores[0]},{ef_scores[1]},{ef_scores[2]},{ef_scores[3]},{ef_scores[4]}\n"
+                    with open(result_ligand, "r") as f:
+                        content_list.append(f.read())
+                with open(f"./{dataset}_{search_mode}_results.sdf", "w") as f:
+                    f.write("".join(content_list))
+
+                results_csv += f"{dataset},{search_mode},{total_num},{success_num},{cost_time},{cost_time/len(ligand_path_list)}\n"
                 shutil.rmtree(outdir, ignore_errors=True)
             except:
                 logging.error(traceback.format_exc())
-                results_csv += f"{dataset},{search_mode},0,0,-1,-1,0,0,0,0,0\n"
+                results_csv += f"{dataset},{search_mode},{total_num},0,0,0\n"
                     
         shutil.rmtree(temp_dir)
         logging.info(f"dataset {dataset} finished")
@@ -161,8 +160,9 @@ def main_cli():
                 exit(-1)
         
         if not os.path.exists(f"{rootdir}/virtual_screening/GBA/inactives.sdf"):
+            import wget
             wget.download(
-                "https://bohrium-api.dp.tech/ds-dl/GBA-inactives-ap7r-v1.zip", 
+                "https://bohrium-api.dp.tech/ds-dl/GBA-inactives-ap7r-v2.zip", 
                 out=f"{rootdir}/data/virtual_screening/GBA/inactives.zip")
             sp.run(f"unzip {rootdir}/data/virtual_screening/GBA/inactives.zip -d {rootdir}/data/virtual_screening/GBA", shell=True)
         
