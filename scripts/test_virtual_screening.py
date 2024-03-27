@@ -101,7 +101,7 @@ def main(config):
                 )
                 cmd = cmd_line.split()
                 for k, v in unidock_args.items():
-                    cmd += [f"--{k} {v}"]
+                    cmd += [f"--{k}", f"{v}"]
                 # run
                 start_time = time.time()
                 status = sp.run(cmd, capture_output=True, encoding="utf-8")
