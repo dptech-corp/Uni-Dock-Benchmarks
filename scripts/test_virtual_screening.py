@@ -93,32 +93,15 @@ def main(config):
                 with open(f"{datadir}/docking_grid.json", "r") as f:
                     pocket = json.load(f)
                 # command
-                cmd = [
-                    "unidock",
-                    "--receptor",
-                    str(receptor),
-                    "--ligand_index",
-                    str(f"{temp_dir}/ligand_list.txt"),
-                    "--center_x",
-                    f"{pocket['center_x']:.4f}",
-                    "--center_y",
-                    f"{pocket['center_y']:.4f}",
-                    "--center_z",
-                    f"{pocket['center_z']:.4f}",
-                    "--size_x",
-                    f"{pocket['size_x']:.4f}",
-                    "--size_y",
-                    f"{pocket['size_y']:.4f}",
-                    "--size_z",
-                    f"{pocket['size_z']:.4f}",
-                    "--dir",
-                    str(outdir),
-                    "--search_mode",
-                    search_mode,
-                    "--keep_nonpolar_H",
-                ]
+                cmd_line = (
+                    f"unidock --receptor {receptor} --ligand_index {temp_dir}/ligand_list.txt "
+                    f"--center_x {pocket['center_x']:.4f} --center_y {pocket['center_y']:.4f} --center_z {pocket['center_z']:.4f} "
+                    f"--size_x {pocket['size_x']:.4f} --size_y {pocket['size_y']:.4f} --size_z {pocket['size_z']:.4f} "
+                    f"--dir {outdir} --search_mode {search_mode} --keep_nonpolar_H "
+                )
+                cmd = cmd_line.split()
                 for k, v in unidock_args.items():
-                    cmd += [f"--{k}", f"{v}"]
+                    cmd += [f"--{k} {v}"]
                 # run
                 start_time = time.time()
                 status = sp.run(cmd, capture_output=True, encoding="utf-8")
