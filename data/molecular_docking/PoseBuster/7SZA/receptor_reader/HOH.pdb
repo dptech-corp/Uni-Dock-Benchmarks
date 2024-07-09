@@ -1,0 +1,33 @@
+TITLE     MDANALYSIS FRAME 0: Created by PDBWriter
+CRYST1    1.000    1.000    1.000  90.00  90.00  90.00 P 1           1
+REMARK     285 UNITARY VALUES FOR THE UNIT CELL AUTOMATICALLY SET
+REMARK     285 BY MDANALYSIS PDBWRITER BECAUSE UNIT CELL INFORMATION
+REMARK     285 WAS MISSING.
+REMARK     285 PROTEIN DATA BANK CONVENTIONS REQUIRE THAT
+REMARK     285 CRYST1 RECORD IS INCLUDED, BUT THE VALUES ON
+REMARK     285 THIS RECORD ARE MEANINGLESS.
+ATOM      1  O   HOH D   1     -33.661  21.129 -15.231  1.00 34.19      D    O  
+ATOM      2  H1  HOH D   1     -33.606  20.389 -14.555  1.00 34.19      D    H  
+ATOM      3  H2  HOH D   1     -32.733  21.433 -15.464  1.00 34.19      D    H  
+ATOM      4  O   HOH D   2     -37.714  15.469 -15.061  1.00 34.71      D    O  
+ATOM      5  H1  HOH D   2     -38.251  15.916 -14.341  1.00 34.71      D    H  
+ATOM      6  H2  HOH D   2     -37.610  14.494 -14.839  1.00 34.71      D    H  
+ATOM      7  O   HOH D   3     -37.195  12.610 -14.711  1.00 36.74      D    O  
+ATOM      8  H1  HOH D   3     -36.208  12.550 -14.536  1.00 36.74      D    H  
+ATOM      9  H2  HOH D   3     -37.447  11.932 -15.402  1.00 36.74      D    H  
+ATOM     10  O   HOH D   4     -36.824   3.461 -11.426  1.00 49.32      D    O  
+ATOM     11  H1  HOH D   4     -37.130   3.568 -12.372  1.00 49.32      D    H  
+ATOM     12  H2  HOH D   4     -35.947   3.940 -11.315  1.00 49.32      D    H  
+ATOM     13  O   HOH D   5     -31.265  17.157  -7.849  1.00 27.94      D    O  
+ATOM     14  H1  HOH D   5     -30.888  16.545  -7.155  1.00 27.94      D    H  
+ATOM     15  H2  HOH D   5     -30.505  17.623  -8.315  1.00 27.94      D    H  
+ATOM     16  O   HOH D   6     -40.235   5.936 -13.488  1.00 46.32      D    O  
+ATOM     17  H1  HOH D   6     -40.774   6.620 -12.991  1.00 46.32      D    H  
+ATOM     18  H2  HOH D   6     -39.292   5.958 -13.148  1.00 46.32      D    H  
+ATOM     19  O   HOH D   7     -40.525   8.960 -15.026  1.00 53.76      D    O  
+ATOM     20  H1  HOH D   7     -40.734   8.852 -14.051  1.00 53.76      D    H  
+ATOM     21  H2  HOH D   7     -40.389   8.054 -15.429  1.00 53.76      D    H  
+ATOM     22  O   HOH D   8     -31.207  18.391 -15.930  1.00 52.05      D    O  
+ATOM     23  H1  HOH D   8     -31.880  18.345 -15.188  1.00 52.05      D    H  
+ATOM     24  H2  HOH D   8     -31.607  18.878 -16.707  1.00 52.05      D    H  
+END

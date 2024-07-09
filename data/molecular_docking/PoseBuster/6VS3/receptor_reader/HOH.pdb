@@ -1,0 +1,51 @@
+TITLE     MDANALYSIS FRAME 0: Created by PDBWriter
+CRYST1    1.000    1.000    1.000  90.00  90.00  90.00 P 1           1
+REMARK     285 UNITARY VALUES FOR THE UNIT CELL AUTOMATICALLY SET
+REMARK     285 BY MDANALYSIS PDBWRITER BECAUSE UNIT CELL INFORMATION
+REMARK     285 WAS MISSING.
+REMARK     285 PROTEIN DATA BANK CONVENTIONS REQUIRE THAT
+REMARK     285 CRYST1 RECORD IS INCLUDED, BUT THE VALUES ON
+REMARK     285 THIS RECORD ARE MEANINGLESS.
+ATOM      1  O   HOH C   1      47.782 -25.415  -6.539  1.00 36.90      C    O  
+ATOM      2  H1  HOH C   1      48.074 -25.692  -7.458  1.00 36.90      C    H  
+ATOM      3  H2  HOH C   1      47.849 -26.207  -5.928  1.00 36.90      C    H  
+ATOM      4  O   HOH C   2      50.550 -29.831  -4.829  1.00 39.50      C    O  
+ATOM      5  H1  HOH C   2      50.678 -29.661  -5.812  1.00 39.50      C    H  
+ATOM      6  H2  HOH C   2      49.937 -30.614  -4.713  1.00 39.50      C    H  
+ATOM      7  O   HOH C   3      51.910 -16.919 -11.610  1.00 32.78      C    O  
+ATOM      8  H1  HOH C   3      51.243 -16.222 -11.328  1.00 32.78      C    H  
+ATOM      9  H2  HOH C   3      52.171 -17.445 -10.794  1.00 32.78      C    H  
+ATOM     10  O   HOH C   4      55.200 -27.743  -9.601  1.00 28.88      C    O  
+ATOM     11  H1  HOH C   4      54.875 -27.779 -10.550  1.00 28.88      C    H  
+ATOM     12  H2  HOH C   4      54.435 -27.970  -8.991  1.00 28.88      C    H  
+ATOM     13  O   HOH C   5      47.680 -26.372  -2.703  1.00 51.83      C    O  
+ATOM     14  H1  HOH C   5      47.820 -26.873  -3.561  1.00 51.83      C    H  
+ATOM     15  H2  HOH C   5      47.062 -26.905  -2.121  1.00 51.83      C    H  
+ATOM     16  O   HOH C   6      49.229 -20.673  -9.332  1.00 30.37      C    O  
+ATOM     17  H1  HOH C   6      49.101 -21.369 -10.043  1.00 30.37      C    H  
+ATOM     18  H2  HOH C   6      48.567 -19.931  -9.468  1.00 30.37      C    H  
+ATOM     19  O   HOH C   7      52.365 -18.264  -9.062  1.00 36.41      C    O  
+ATOM     20  H1  HOH C   7      53.290 -18.182  -8.679  1.00 36.41      C    H  
+ATOM     21  H2  HOH C   7      51.799 -18.799  -8.432  1.00 36.41      C    H  
+ATOM     22  O   HOH C   8      50.655 -28.064  -1.669  1.00 44.21      C    O  
+ATOM     23  H1  HOH C   8      49.820 -28.559  -1.913  1.00 44.21      C    H  
+ATOM     24  H2  HOH C   8      51.452 -28.610  -1.942  1.00 44.21      C    H  
+ATOM     25  O   HOH C   9      50.629 -19.409  -4.884  1.00 41.36      C    O  
+ATOM     26  H1  HOH C   9      50.311 -20.129  -4.262  1.00 41.36      C    H  
+ATOM     27  H2  HOH C   9      50.752 -19.798  -5.802  1.00 41.36      C    H  
+ATOM     28  O   HOH C  10      51.303 -20.710  -7.424  1.00 36.30      C    O  
+ATOM     29  H1  HOH C  10      52.007 -21.328  -7.779  1.00 36.30      C    H  
+ATOM     30  H2  HOH C  10      50.523 -20.711  -8.061  1.00 36.30      C    H  
+ATOM     31  O   HOH C  11      51.468 -13.607 -15.386  1.00 47.60      C    O  
+ATOM     32  H1  HOH C  11      52.210 -14.243 -15.611  1.00 47.60      C    H  
+ATOM     33  H2  HOH C  11      50.601 -14.107 -15.415  1.00 47.60      C    H  
+ATOM     34  O   HOH C  12      47.992 -28.158  -5.080  1.00 59.68      C    O  
+ATOM     35  H1  HOH C  12      47.360 -28.675  -5.667  1.00 59.68      C    H  
+ATOM     36  H2  HOH C  12      48.876 -28.631  -5.054  1.00 59.68      C    H  
+ATOM     37  O   HOH C  13      52.740 -29.786  -2.729  1.00 45.90      C    O  
+ATOM     38  H1  HOH C  13      51.941 -29.909  -3.324  1.00 45.90      C    H  
+ATOM     39  H2  HOH C  13      53.166 -30.681  -2.567  1.00 45.90      C    H  
+ATOM     40  O   HOH C  14      50.410 -11.334 -13.545  1.00 57.89      C    O  
+ATOM     41  H1  HOH C  14      50.688 -12.037 -14.204  1.00 57.89      C    H  
+ATOM     42  H2  HOH C  14      49.418 -11.380 -13.417  1.00 57.89      C    H  
+END

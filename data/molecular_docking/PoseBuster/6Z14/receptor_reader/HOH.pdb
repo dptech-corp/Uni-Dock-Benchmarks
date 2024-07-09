@@ -1,0 +1,42 @@
+TITLE     MDANALYSIS FRAME 0: Created by PDBWriter
+CRYST1    1.000    1.000    1.000  90.00  90.00  90.00 P 1           1
+REMARK     285 UNITARY VALUES FOR THE UNIT CELL AUTOMATICALLY SET
+REMARK     285 BY MDANALYSIS PDBWRITER BECAUSE UNIT CELL INFORMATION
+REMARK     285 WAS MISSING.
+REMARK     285 PROTEIN DATA BANK CONVENTIONS REQUIRE THAT
+REMARK     285 CRYST1 RECORD IS INCLUDED, BUT THE VALUES ON
+REMARK     285 THIS RECORD ARE MEANINGLESS.
+ATOM      1  O   HOH K   1      21.465   2.473  10.848  1.00 28.95      K    O  
+ATOM      2  H1  HOH K   1      21.684   2.979  10.007  1.00 28.95      K    H  
+ATOM      3  H2  HOH K   1      20.892   1.683  10.611  1.00 28.95      K    H  
+ATOM      4  O   HOH K   2      20.627   8.528   7.140  1.00 34.57      K    O  
+ATOM      5  H1  HOH K   2      20.459   8.837   6.201  1.00 34.57      K    H  
+ATOM      6  H2  HOH K   2      20.863   7.551   7.139  1.00 34.57      K    H  
+ATOM      7  O   HOH K   3      13.063  10.066   5.562  1.00 32.51      K    O  
+ATOM      8  H1  HOH K   3      12.063  10.055   5.552  1.00 32.51      K    H  
+ATOM      9  H2  HOH K   3      13.376  10.775   6.202  1.00 32.51      K    H  
+ATOM     10  O   HOH K   4      13.280  17.176  10.304  1.00 18.50      K    O  
+ATOM     11  H1  HOH K   4      14.247  17.328  10.531  1.00 18.50      K    H  
+ATOM     12  H2  HOH K   4      13.070  16.201  10.436  1.00 18.50      K    H  
+ATOM     13  O   HOH K   5      12.115   9.928   8.938  1.00 36.30      K    O  
+ATOM     14  H1  HOH K   5      12.536   9.041   8.747  1.00 36.30      K    H  
+ATOM     15  H2  HOH K   5      12.713  10.656   8.587  1.00 36.30      K    H  
+ATOM     16  O   HOH K   6      10.963  10.922  11.514  1.00 28.66      K    O  
+ATOM     17  H1  HOH K   6      11.705  11.386  12.007  1.00 28.66      K    H  
+ATOM     18  H2  HOH K   6      11.342  10.493  10.689  1.00 28.66      K    H  
+ATOM     19  O   HOH K   7      12.945  14.289  10.746  1.00 21.89      K    O  
+ATOM     20  H1  HOH K   7      13.011  13.593  11.469  1.00 21.89      K    H  
+ATOM     21  H2  HOH K   7      13.552  14.031   9.989  1.00 21.89      K    H  
+ATOM     22  O   HOH K   8       8.524  12.356  10.676  1.00 33.27      K    O  
+ATOM     23  H1  HOH K   8       8.814  13.253  10.330  1.00 33.27      K    H  
+ATOM     24  H2  HOH K   8       9.328  11.881  11.050  1.00 33.27      K    H  
+ATOM     25  O   HOH K   9      13.881   7.629  12.305  1.00 38.25      K    O  
+ATOM     26  H1  HOH K   9      13.543   8.397  12.856  1.00 38.25      K    H  
+ATOM     27  H2  HOH K   9      14.806   7.849  11.990  1.00 38.25      K    H  
+ATOM     28  O   HOH K  10      14.775   7.863   6.932  1.00 31.95      K    O  
+ATOM     29  H1  HOH K  10      15.623   8.305   7.234  1.00 31.95      K    H  
+ATOM     30  H2  HOH K  10      14.215   8.525   6.428  1.00 31.95      K    H  
+ATOM     31  O   HOH K  11      16.579   4.364   9.267  1.00 35.80      K    O  
+ATOM     32  H1  HOH K  11      17.542   4.639   9.252  1.00 35.80      K    H  
+ATOM     33  H2  HOH K  11      16.057   4.952   8.650  1.00 35.80      K    H  
+END

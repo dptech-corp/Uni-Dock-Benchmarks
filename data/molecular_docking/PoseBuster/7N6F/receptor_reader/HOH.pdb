@@ -1,0 +1,24 @@
+TITLE     MDANALYSIS FRAME 0: Created by PDBWriter
+CRYST1    1.000    1.000    1.000  90.00  90.00  90.00 P 1           1
+REMARK     285 UNITARY VALUES FOR THE UNIT CELL AUTOMATICALLY SET
+REMARK     285 BY MDANALYSIS PDBWRITER BECAUSE UNIT CELL INFORMATION
+REMARK     285 WAS MISSING.
+REMARK     285 PROTEIN DATA BANK CONVENTIONS REQUIRE THAT
+REMARK     285 CRYST1 RECORD IS INCLUDED, BUT THE VALUES ON
+REMARK     285 THIS RECORD ARE MEANINGLESS.
+ATOM      1  O   HOH B   1     -21.388  -5.974  20.475  1.00 20.60      B    O  
+ATOM      2  H1  HOH B   1     -22.325  -5.666  20.296  1.00 20.60      B    H  
+ATOM      3  H2  HOH B   1     -20.880  -5.985  19.609  1.00 20.60      B    H  
+ATOM      4  O   HOH B   2     -24.274   5.927  24.047  1.00 22.15      B    O  
+ATOM      5  H1  HOH B   2     -23.535   6.452  23.616  1.00 22.15      B    H  
+ATOM      6  H2  HOH B   2     -25.118   6.468  24.036  1.00 22.15      B    H  
+ATOM      7  O   HOH B   3     -17.250   2.181  17.473  1.00 21.31      B    O  
+ATOM      8  H1  HOH B   3     -16.765   3.024  17.717  1.00 21.31      B    H  
+ATOM      9  H2  HOH B   3     -18.195   2.228  17.807  1.00 21.31      B    H  
+ATOM     10  O   HOH B   4     -12.230  -8.082  21.534  1.00 12.38      B    O  
+ATOM     11  H1  HOH B   4     -11.501  -7.748  20.935  1.00 12.38      B    H  
+ATOM     12  H2  HOH B   4     -12.421  -7.392  22.237  1.00 12.38      B    H  
+ATOM     13  O   HOH B   5     -20.124   2.013  18.224  1.00 36.58      B    O  
+ATOM     14  H1  HOH B   5     -20.419   1.090  18.480  1.00 36.58      B    H  
+ATOM     15  H2  HOH B   5     -20.451   2.221  17.300  1.00 36.58      B    H  
+END

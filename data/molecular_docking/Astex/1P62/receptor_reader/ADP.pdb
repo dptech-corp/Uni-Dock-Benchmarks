@@ -1,0 +1,48 @@
+TITLE     MDANALYSIS FRAME 0: Created by PDBWriter
+CRYST1    1.000    1.000    1.000  90.00  90.00  90.00 P 1           1
+REMARK     285 UNITARY VALUES FOR THE UNIT CELL AUTOMATICALLY SET
+REMARK     285 BY MDANALYSIS PDBWRITER BECAUSE UNIT CELL INFORMATION
+REMARK     285 WAS MISSING.
+REMARK     285 PROTEIN DATA BANK CONVENTIONS REQUIRE THAT
+REMARK     285 CRYST1 RECORD IS INCLUDED, BUT THE VALUES ON
+REMARK     285 THIS RECORD ARE MEANINGLESS.
+ATOM      1  P1  ADP D   1      73.460  43.271  19.015  1.00 25.19      D    P  
+ATOM      2  O2  ADP D   1      73.542  41.766  19.328  1.00 28.43      D    O  
+ATOM      3  O3  ADP D   1      72.463  44.003  19.932  1.00 28.68      D    O1-
+ATOM      4  O4  ADP D   1      73.225  43.550  17.522  1.00 23.59      D    O1-
+ATOM      5  P5  ADP D   1      75.631  45.051  20.519  1.00 30.41      D    P  
+ATOM      6  O6  ADP D   1      74.978  46.386  20.255  1.00 27.26      D    O  
+ATOM      7  O7  ADP D   1      75.643  44.391  21.884  1.00 30.14      D    O1-
+ATOM      8  O8  ADP D   1      75.026  43.926  19.390  1.00 29.84      D    O  
+ATOM      9  O9  ADP D   1      77.242  45.138  19.915  1.00 26.46      D    O  
+ATOM     10  C10 ADP D   1      78.084  44.007  20.058  1.00 28.32      D    C  
+ATOM     11  C11 ADP D   1      79.531  44.438  20.378  1.00 27.38      D    C  
+ATOM     12  O12 ADP D   1      80.081  45.118  19.259  1.00 28.61      D    O  
+ATOM     13  C13 ADP D   1      79.707  45.422  21.540  1.00 30.83      D    C  
+ATOM     14  O14 ADP D   1      80.920  45.181  22.238  1.00 32.46      D    O  
+ATOM     15  C15 ADP D   1      79.638  46.798  20.873  1.00 31.67      D    C  
+ATOM     16  O16 ADP D   1      80.336  47.857  21.512  1.00 33.27      D    O  
+ATOM     17  C17 ADP D   1      80.246  46.481  19.504  1.00 31.15      D    C  
+ATOM     18  N18 ADP D   1      79.741  47.289  18.328  1.00 30.75      D    N  
+ATOM     19  C19 ADP D   1      78.469  47.456  17.914  1.00 31.67      D    C  
+ATOM     20  N20 ADP D   1      78.351  48.211  16.851  1.00 30.35      D    N  
+ATOM     21  C21 ADP D   1      79.606  48.605  16.590  1.00 28.13      D    C  
+ATOM     22  C22 ADP D   1      80.141  49.425  15.571  1.00 30.54      D    C  
+ATOM     23  N23 ADP D   1      79.386  49.971  14.536  1.00 31.31      D    N  
+ATOM     24  N24 ADP D   1      81.471  49.685  15.596  1.00 29.91      D    N  
+ATOM     25  C25 ADP D   1      82.213  49.130  16.561  1.00 29.55      D    C  
+ATOM     26  N26 ADP D   1      81.833  48.305  17.548  1.00 31.03      D    N  
+ATOM     27  C27 ADP D   1      80.497  48.078  17.511  1.00 31.01      D    C  
+ATOM     28  H28 ADP D   1      78.050  43.432  19.133  1.00 28.32      D    H  
+ATOM     29  H29 ADP D   1      77.735  43.340  20.846  1.00 28.32      D    H  
+ATOM     30  H30 ADP D   1      80.119  43.540  20.545  1.00 27.38      D    H  
+ATOM     31  H31 ADP D   1      78.890  45.315  22.256  1.00 30.83      D    H  
+ATOM     32  H32 ADP D   1      80.942  45.746  23.015  1.00 32.46      D    H  
+ATOM     33  H33 ADP D   1      78.599  47.087  20.723  1.00 31.67      D    H  
+ATOM     34  H34 ADP D   1      81.208  47.946  21.112  1.00 33.27      D    H  
+ATOM     35  H35 ADP D   1      81.329  46.612  19.541  1.00 31.15      D    H  
+ATOM     36  H36 ADP D   1      77.656  46.974  18.430  1.00 31.67      D    H  
+ATOM     37  H37 ADP D   1      79.861  50.485  13.807  1.00 31.31      D    H  
+ATOM     38  H38 ADP D   1      78.405  49.734  14.455  1.00 31.31      D    H  
+ATOM     39  H39 ADP D   1      83.265  49.372  16.534  1.00 29.55      D    H  
+END

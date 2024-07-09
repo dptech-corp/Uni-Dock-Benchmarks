@@ -1,0 +1,36 @@
+TITLE     MDANALYSIS FRAME 0: Created by PDBWriter
+CRYST1    1.000    1.000    1.000  90.00  90.00  90.00 P 1           1
+REMARK     285 UNITARY VALUES FOR THE UNIT CELL AUTOMATICALLY SET
+REMARK     285 BY MDANALYSIS PDBWRITER BECAUSE UNIT CELL INFORMATION
+REMARK     285 WAS MISSING.
+REMARK     285 PROTEIN DATA BANK CONVENTIONS REQUIRE THAT
+REMARK     285 CRYST1 RECORD IS INCLUDED, BUT THE VALUES ON
+REMARK     285 THIS RECORD ARE MEANINGLESS.
+ATOM      1  O   HOH C   1      21.402  48.600 -29.473  1.00 38.03      C    O  
+ATOM      2  H1  HOH C   1      22.301  48.419 -29.062  1.00 38.03      C    H  
+ATOM      3  H2  HOH C   1      20.980  47.726 -29.715  1.00 38.03      C    H  
+ATOM      4  O   HOH C   2      26.658  40.022 -17.784  1.00 43.06      C    O  
+ATOM      5  H1  HOH C   2      25.939  39.472 -18.212  1.00 43.06      C    H  
+ATOM      6  H2  HOH C   2      26.401  40.233 -16.838  1.00 43.06      C    H  
+ATOM      7  O   HOH C   3      20.015  48.489 -19.390  1.00 17.23      C    O  
+ATOM      8  H1  HOH C   3      20.877  49.004 -19.373  1.00 17.23      C    H  
+ATOM      9  H2  HOH C   3      20.126  47.643 -18.862  1.00 17.23      C    H  
+ATOM     10  O   HOH C   4      20.066  45.835 -18.045  1.00 21.08      C    O  
+ATOM     11  H1  HOH C   4      20.401  46.147 -17.149  1.00 21.08      C    H  
+ATOM     12  H2  HOH C   4      20.818  45.390 -18.538  1.00 21.08      C    H  
+ATOM     13  O   HOH C   5      19.641  47.363 -24.489  1.00 22.24      C    O  
+ATOM     14  H1  HOH C   5      20.368  47.957 -24.845  1.00 22.24      C    H  
+ATOM     15  H2  HOH C   5      19.269  47.760 -23.646  1.00 22.24      C    H  
+ATOM     16  O   HOH C   6      17.550  45.729 -19.428  1.00 30.04      C    O  
+ATOM     17  H1  HOH C   6      17.138  46.618 -19.207  1.00 30.04      C    H  
+ATOM     18  H2  HOH C   6      18.389  45.633 -18.882  1.00 30.04      C    H  
+ATOM     19  O   HOH C   7      21.800  50.411 -13.611  1.00 15.02      C    O  
+ATOM     20  H1  HOH C   7      20.928  50.880 -13.773  1.00 15.02      C    H  
+ATOM     21  H2  HOH C   7      21.635  49.419 -13.636  1.00 15.02      C    H  
+ATOM     22  O   HOH C   8      19.317  44.265 -21.302  1.00 28.12      C    O  
+ATOM     23  H1  HOH C   8      20.228  44.410 -20.909  1.00 28.12      C    H  
+ATOM     24  H2  HOH C   8      18.628  44.651 -20.684  1.00 28.12      C    H  
+ATOM     25  O   HOH C   9      18.545  44.616 -24.167  1.00 33.19      C    O  
+ATOM     26  H1  HOH C   9      18.935  45.498 -24.448  1.00 33.19      C    H  
+ATOM     27  H2  HOH C   9      18.838  44.414 -23.229  1.00 33.19      C    H  
+END

@@ -1,0 +1,54 @@
+TITLE     MDANALYSIS FRAME 0: Created by PDBWriter
+CRYST1    1.000    1.000    1.000  90.00  90.00  90.00 P 1           1
+REMARK     285 UNITARY VALUES FOR THE UNIT CELL AUTOMATICALLY SET
+REMARK     285 BY MDANALYSIS PDBWRITER BECAUSE UNIT CELL INFORMATION
+REMARK     285 WAS MISSING.
+REMARK     285 PROTEIN DATA BANK CONVENTIONS REQUIRE THAT
+REMARK     285 CRYST1 RECORD IS INCLUDED, BUT THE VALUES ON
+REMARK     285 THIS RECORD ARE MEANINGLESS.
+ATOM      1  O   HOH C   1      13.536  -2.673  51.356  1.00 42.46      C    O  
+ATOM      2  H1  HOH C   1      14.321  -2.255  51.824  1.00 42.46      C    H  
+ATOM      3  H2  HOH C   1      12.963  -1.941  50.975  1.00 42.46      C    H  
+ATOM      4  O   HOH C   2      18.317   3.580  53.716  1.00 45.28      C    O  
+ATOM      5  H1  HOH C   2      17.474   3.189  54.101  1.00 45.28      C    H  
+ATOM      6  H2  HOH C   2      18.095   4.024  52.844  1.00 45.28      C    H  
+ATOM      7  O   HOH C   3      15.724  -1.056  52.359  1.00 40.07      C    O  
+ATOM      8  H1  HOH C   3      15.353  -0.142  52.566  1.00 40.07      C    H  
+ATOM      9  H2  HOH C   3      16.450  -1.257  53.024  1.00 40.07      C    H  
+ATOM     10  O   HOH C   4       9.399   1.963  52.139  1.00 39.53      C    O  
+ATOM     11  H1  HOH C   4       9.397   2.945  52.350  1.00 39.53      C    H  
+ATOM     12  H2  HOH C   4      10.050   1.507  52.747  1.00 39.53      C    H  
+ATOM     13  O   HOH C   5      15.732   9.472  47.763  1.00 40.88      C    O  
+ATOM     14  H1  HOH C   5      16.301   9.145  47.003  1.00 40.88      C    H  
+ATOM     15  H2  HOH C   5      14.835   9.755  47.404  1.00 40.88      C    H  
+ATOM     16  O   HOH C   6      12.680   1.783  44.220  1.00 41.44      C    O  
+ATOM     17  H1  HOH C   6      12.719   2.699  44.628  1.00 41.44      C    H  
+ATOM     18  H2  HOH C   6      12.008   1.238  44.727  1.00 41.44      C    H  
+ATOM     19  O   HOH C   7      15.610  -0.029  49.589  1.00 36.39      C    O  
+ATOM     20  H1  HOH C   7      15.376  -0.502  50.443  1.00 36.39      C    H  
+ATOM     21  H2  HOH C   7      14.815  -0.024  48.978  1.00 36.39      C    H  
+ATOM     22  O   HOH C   8      13.585   0.677  47.509  1.00 40.23      C    O  
+ATOM     23  H1  HOH C   8      12.758   0.706  46.940  1.00 40.23      C    H  
+ATOM     24  H2  HOH C   8      13.900   1.616  47.676  1.00 40.23      C    H  
+ATOM     25  O   HOH C   9      13.090  10.118  46.858  1.00 43.99      C    O  
+ATOM     26  H1  HOH C   9      12.229  10.016  47.364  1.00 43.99      C    H  
+ATOM     27  H2  HOH C   9      12.881  10.545  45.973  1.00 43.99      C    H  
+ATOM     28  O   HOH C  10      20.401   4.702  50.868  1.00 48.53      C    O  
+ATOM     29  H1  HOH C  10      19.403   4.809  50.894  1.00 48.53      C    H  
+ATOM     30  H2  HOH C  10      20.743   4.951  49.957  1.00 48.53      C    H  
+ATOM     31  O   HOH C  11       9.239  -0.139  50.189  1.00 35.02      C    O  
+ATOM     32  H1  HOH C  11       8.544  -0.029  49.474  1.00 35.02      C    H  
+ATOM     33  H2  HOH C  11       9.222   0.666  50.790  1.00 35.02      C    H  
+ATOM     34  O   HOH C  12      21.592   4.708  48.169  1.00 57.94      C    O  
+ATOM     35  H1  HOH C  12      22.213   4.078  47.696  1.00 57.94      C    H  
+ATOM     36  H2  HOH C  12      20.957   5.105  47.500  1.00 57.94      C    H  
+ATOM     37  O   HOH C  13      12.108  -0.425  50.092  1.00 37.81      C    O  
+ATOM     38  H1  HOH C  13      12.387  -0.096  49.188  1.00 37.81      C    H  
+ATOM     39  H2  HOH C  13      11.110  -0.333  50.176  1.00 37.81      C    H  
+ATOM     40  O   HOH C  14      19.503   0.870  53.321  1.00 49.10      C    O  
+ATOM     41  H1  HOH C  14      19.132   1.790  53.475  1.00 49.10      C    H  
+ATOM     42  H2  HOH C  14      18.847   0.192  53.664  1.00 49.10      C    H  
+ATOM     43  O   HOH C  15      22.362   5.507  52.939  1.00 62.05      C    O  
+ATOM     44  H1  HOH C  15      21.687   5.226  52.250  1.00 62.05      C    H  
+ATOM     45  H2  HOH C  15      22.190   6.458  53.196  1.00 62.05      C    H  
+END

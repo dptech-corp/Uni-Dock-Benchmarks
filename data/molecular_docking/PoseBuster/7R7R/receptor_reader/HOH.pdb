@@ -1,0 +1,30 @@
+TITLE     MDANALYSIS FRAME 0: Created by PDBWriter
+CRYST1    1.000    1.000    1.000  90.00  90.00  90.00 P 1           1
+REMARK     285 UNITARY VALUES FOR THE UNIT CELL AUTOMATICALLY SET
+REMARK     285 BY MDANALYSIS PDBWRITER BECAUSE UNIT CELL INFORMATION
+REMARK     285 WAS MISSING.
+REMARK     285 PROTEIN DATA BANK CONVENTIONS REQUIRE THAT
+REMARK     285 CRYST1 RECORD IS INCLUDED, BUT THE VALUES ON
+REMARK     285 THIS RECORD ARE MEANINGLESS.
+ATOM      1  O   HOH B   1      35.965  42.822   8.762  1.00 37.30      B    O  
+ATOM      2  H1  HOH B   1      35.880  43.818   8.803  1.00 37.30      B    H  
+ATOM      3  H2  HOH B   1      36.783  42.550   9.281  1.00 37.30      B    H  
+ATOM      4  O   HOH B   2      29.255  54.944   9.606  1.00 32.01      B    O  
+ATOM      5  H1  HOH B   2      28.634  54.527  10.274  1.00 32.01      B    H  
+ATOM      6  H2  HOH B   2      29.605  54.236   8.989  1.00 32.01      B    H  
+ATOM      7  O   HOH B   3      36.493  50.006   8.108  1.00 25.95      B    O  
+ATOM      8  H1  HOH B   3      36.583  49.484   8.959  1.00 25.95      B    H  
+ATOM      9  H2  HOH B   3      35.524  50.184   7.929  1.00 25.95      B    H  
+ATOM     10  O   HOH B   4      34.724  40.670  10.712  1.00 25.59      B    O  
+ATOM     11  H1  HOH B   4      34.358  41.123  11.529  1.00 25.59      B    H  
+ATOM     12  H2  HOH B   4      35.060  41.368  10.076  1.00 25.59      B    H  
+ATOM     13  O   HOH B   5      25.925  52.060   5.902  1.00 31.28      B    O  
+ATOM     14  H1  HOH B   5      26.525  51.496   6.470  1.00 31.28      B    H  
+ATOM     15  H2  HOH B   5      25.884  52.985   6.281  1.00 31.28      B    H  
+ATOM     16  O   HOH B   6      37.891  45.836   9.387  1.00 47.07      B    O  
+ATOM     17  H1  HOH B   6      38.526  45.158   9.015  1.00 47.07      B    H  
+ATOM     18  H2  HOH B   6      38.317  46.272  10.184  1.00 47.07      B    H  
+ATOM     19  O   HOH B   7      22.623  48.637   7.099  1.00 41.39      B    O  
+ATOM     20  H1  HOH B   7      23.079  49.507   6.907  1.00 41.39      B    H  
+ATOM     21  H2  HOH B   7      22.462  48.154   6.234  1.00 41.39      B    H  
+END

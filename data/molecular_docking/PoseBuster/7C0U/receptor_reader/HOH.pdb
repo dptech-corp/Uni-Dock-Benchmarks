@@ -1,0 +1,87 @@
+TITLE     MDANALYSIS FRAME 0: Created by PDBWriter
+CRYST1    1.000    1.000    1.000  90.00  90.00  90.00 P 1           1
+REMARK     285 UNITARY VALUES FOR THE UNIT CELL AUTOMATICALLY SET
+REMARK     285 BY MDANALYSIS PDBWRITER BECAUSE UNIT CELL INFORMATION
+REMARK     285 WAS MISSING.
+REMARK     285 PROTEIN DATA BANK CONVENTIONS REQUIRE THAT
+REMARK     285 CRYST1 RECORD IS INCLUDED, BUT THE VALUES ON
+REMARK     285 THIS RECORD ARE MEANINGLESS.
+ATOM      1  O   HOH B   1      20.443   1.007  10.671  1.00 18.22      B    O  
+ATOM      2  H1  HOH B   1      21.025   0.349  11.162  1.00 18.22      B    H  
+ATOM      3  H2  HOH B   1      19.476   0.777  10.825  1.00 18.22      B    H  
+ATOM      4  O   HOH B   2      15.304   1.344  18.407  1.00 40.08      B    O  
+ATOM      5  H1  HOH B   2      15.922   1.814  19.042  1.00 40.08      B    H  
+ATOM      6  H2  HOH B   2      15.837   0.947  17.655  1.00 40.08      B    H  
+ATOM      7  O   HOH B   3      16.788 -14.405   0.201  1.00 18.94      B    O  
+ATOM      8  H1  HOH B   3      16.395 -13.601   0.656  1.00 18.94      B    H  
+ATOM      9  H2  HOH B   3      17.723 -14.174  -0.082  1.00 18.94      B    H  
+ATOM     10  O   HOH B   4       8.285  -1.340   6.241  1.00 27.38      B    O  
+ATOM     11  H1  HOH B   4       7.349  -1.212   6.577  1.00 27.38      B    H  
+ATOM     12  H2  HOH B   4       8.294  -1.190   5.246  1.00 27.38      B    H  
+ATOM     13  O   HOH B   5      15.807  -6.503  15.343  1.00 21.74      B    O  
+ATOM     14  H1  HOH B   5      15.867  -5.505  15.386  1.00 21.74      B    H  
+ATOM     15  H2  HOH B   5      15.964  -6.869  16.264  1.00 21.74      B    H  
+ATOM     16  O   HOH B   6       9.945  -7.632  -2.236  1.00 17.38      B    O  
+ATOM     17  H1  HOH B   6      10.485  -8.472  -2.332  1.00 17.38      B    H  
+ATOM     18  H2  HOH B   6      10.525  -6.833  -2.421  1.00 17.38      B    H  
+ATOM     19  O   HOH B   7      11.707 -11.029   8.561  1.00 31.52      B    O  
+ATOM     20  H1  HOH B   7      12.024 -11.406   9.436  1.00 31.52      B    H  
+ATOM     21  H2  HOH B   7      12.421 -11.185   7.873  1.00 31.52      B    H  
+ATOM     22  O   HOH B   8      10.872  -1.823   2.016  1.00 26.37      B    O  
+ATOM     23  H1  HOH B   8      10.122  -1.357   2.496  1.00 26.37      B    H  
+ATOM     24  H2  HOH B   8      10.637  -1.876   1.041  1.00 26.37      B    H  
+ATOM     25  O   HOH B   9       9.076 -11.607   7.165  1.00 30.87      B    O  
+ATOM     26  H1  HOH B   9       9.031 -10.764   6.621  1.00 30.87      B    H  
+ATOM     27  H2  HOH B   9       9.879 -11.552   7.765  1.00 30.87      B    H  
+ATOM     28  O   HOH B  10       6.945 -14.144  -2.828  1.00 14.80      B    O  
+ATOM     29  H1  HOH B  10       7.559 -14.906  -3.060  1.00 14.80      B    H  
+ATOM     30  H2  HOH B  10       6.221 -14.092  -3.517  1.00 14.80      B    H  
+ATOM     31  O   HOH B  11      11.533  -6.850   0.182  1.00 20.72      B    O  
+ATOM     32  H1  HOH B  11      11.864  -6.032  -0.299  1.00 20.72      B    H  
+ATOM     33  H2  HOH B  11      10.822  -7.285  -0.373  1.00 20.72      B    H  
+ATOM     34  O   HOH B  12      17.592   0.860  10.979  1.00 24.06      B    O  
+ATOM     35  H1  HOH B  12      17.362   1.557  10.292  1.00 24.06      B    H  
+ATOM     36  H2  HOH B  12      16.916   0.121  10.914  1.00 24.06      B    H  
+ATOM     37  O   HOH B  13      11.616  -8.065   7.338  1.00 24.28      B    O  
+ATOM     38  H1  HOH B  13      11.313  -7.212   7.772  1.00 24.28      B    H  
+ATOM     39  H2  HOH B  13      11.546  -8.819   7.995  1.00 24.28      B    H  
+ATOM     40  O   HOH B  14       9.506  -4.782   3.248  1.00 27.97      B    O  
+ATOM     41  H1  HOH B  14       9.168  -4.102   2.590  1.00 27.97      B    H  
+ATOM     42  H2  HOH B  14      10.436  -5.054   2.987  1.00 27.97      B    H  
+ATOM     43  O   HOH B  15      10.255 -15.444   4.944  1.00 13.11      B    O  
+ATOM     44  H1  HOH B  15       9.476 -15.290   4.328  1.00 13.11      B    H  
+ATOM     45  H2  HOH B  15       9.932 -15.364   5.891  1.00 13.11      B    H  
+ATOM     46  O   HOH B  16      10.596   0.502   6.220  1.00 13.72      B    O  
+ATOM     47  H1  HOH B  16       9.813  -0.124   6.144  1.00 13.72      B    H  
+ATOM     48  H2  HOH B  16      11.337   0.162   5.634  1.00 13.72      B    H  
+ATOM     49  O   HOH B  17       6.986  -3.427   8.937  1.00 34.37      B    O  
+ATOM     50  H1  HOH B  17       7.725  -3.392   8.261  1.00 34.37      B    H  
+ATOM     51  H2  HOH B  17       6.575  -4.340   8.921  1.00 34.37      B    H  
+ATOM     52  O   HOH B  18       7.394 -14.490   0.248  1.00 21.70      B    O  
+ATOM     53  H1  HOH B  18       7.234 -14.468  -0.742  1.00 21.70      B    H  
+ATOM     54  H2  HOH B  18       8.053 -13.773   0.490  1.00 21.70      B    H  
+ATOM     55  O   HOH B  19      18.834  -3.107   2.085  1.00 10.01      B    O  
+ATOM     56  H1  HOH B  19      19.517  -2.377   2.169  1.00 10.01      B    H  
+ATOM     57  H2  HOH B  19      19.292  -3.995   2.024  1.00 10.01      B    H  
+ATOM     58  O   HOH B  20      12.309  -5.837   2.688  1.00 31.17      B    O  
+ATOM     59  H1  HOH B  20      12.586  -6.611   3.265  1.00 31.17      B    H  
+ATOM     60  H2  HOH B  20      12.070  -6.194   1.778  1.00 31.17      B    H  
+ATOM     61  O   HOH B  21      12.918 -14.596   6.600  1.00 17.01      B    O  
+ATOM     62  H1  HOH B  21      13.345 -15.383   6.147  1.00 17.01      B    H  
+ATOM     63  H2  HOH B  21      12.032 -14.425   6.165  1.00 17.01      B    H  
+ATOM     64  O   HOH B  22       7.023  -5.487   4.676  1.00 20.92      B    O  
+ATOM     65  H1  HOH B  22       7.889  -5.391   4.174  1.00 20.92      B    H  
+ATOM     66  H2  HOH B  22       7.201  -5.335   5.648  1.00 20.92      B    H  
+ATOM     67  O   HOH B  23       6.952 -13.220   5.791  1.00 31.68      B    O  
+ATOM     68  H1  HOH B  23       6.103 -13.207   6.320  1.00 31.68      B    H  
+ATOM     69  H2  HOH B  23       7.614 -12.599   6.219  1.00 31.68      B    H  
+ATOM     70  O   HOH B  24       7.930 -14.730   3.326  1.00 20.62      B    O  
+ATOM     71  H1  HOH B  24       7.438 -14.813   2.457  1.00 20.62      B    H  
+ATOM     72  H2  HOH B  24       7.369 -14.224   3.987  1.00 20.62      B    H  
+ATOM     73  O   HOH B  25      13.308  -3.165   2.738  1.00 22.70      B    O  
+ATOM     74  H1  HOH B  25      12.471  -2.633   2.568  1.00 22.70      B    H  
+ATOM     75  H2  HOH B  25      13.070  -4.142   2.717  1.00 22.70      B    H  
+ATOM     76  O   HOH B  26       5.716  -0.914   7.646  1.00 18.80      B    O  
+ATOM     77  H1  HOH B  26       5.853  -0.060   8.156  1.00 18.80      B    H  
+ATOM     78  H2  HOH B  26       5.974  -1.691   8.224  1.00 18.80      B    H  
+END

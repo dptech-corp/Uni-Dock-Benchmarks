@@ -1,0 +1,60 @@
+TITLE     MDANALYSIS FRAME 0: Created by PDBWriter
+CRYST1    1.000    1.000    1.000  90.00  90.00  90.00 P 1           1
+REMARK     285 UNITARY VALUES FOR THE UNIT CELL AUTOMATICALLY SET
+REMARK     285 BY MDANALYSIS PDBWRITER BECAUSE UNIT CELL INFORMATION
+REMARK     285 WAS MISSING.
+REMARK     285 PROTEIN DATA BANK CONVENTIONS REQUIRE THAT
+REMARK     285 CRYST1 RECORD IS INCLUDED, BUT THE VALUES ON
+REMARK     285 THIS RECORD ARE MEANINGLESS.
+ATOM      1  O   HOH I   1      19.043  44.662  34.468  1.00 13.96      I    O  
+ATOM      2  H1  HOH I   1      18.375  45.333  34.803  1.00 13.96      I    H  
+ATOM      3  H2  HOH I   1      18.596  43.764  34.414  1.00 13.96      I    H  
+ATOM      4  O   HOH I   2       6.977  41.255  40.911  1.00 39.90      I    O  
+ATOM      5  H1  HOH I   2       7.933  41.536  40.787  1.00 39.90      I    H  
+ATOM      6  H2  HOH I   2       6.856  40.894  41.840  1.00 39.90      I    H  
+ATOM      7  O   HOH I   3       8.939  38.709  37.696  1.00 25.76      I    O  
+ATOM      8  H1  HOH I   3       8.400  38.934  36.879  1.00 25.76      I    H  
+ATOM      9  H2  HOH I   3       9.896  38.947  37.523  1.00 25.76      I    H  
+ATOM     10  O   HOH I   4      11.516  46.398  37.556  1.00 16.35      I    O  
+ATOM     11  H1  HOH I   4      12.280  46.973  37.256  1.00 16.35      I    H  
+ATOM     12  H2  HOH I   4      11.697  46.092  38.494  1.00 16.35      I    H  
+ATOM     13  O   HOH I   5      19.395  34.495  26.290  1.00 15.89      I    O  
+ATOM     14  H1  HOH I   5      19.964  35.184  25.833  1.00 15.89      I    H  
+ATOM     15  H2  HOH I   5      18.426  34.726  26.147  1.00 15.89      I    H  
+ATOM     16  O   HOH I   6      17.566  37.417  30.849  1.00 15.17      I    O  
+ATOM     17  H1  HOH I   6      17.904  38.359  30.773  1.00 15.17      I    H  
+ATOM     18  H2  HOH I   6      18.338  36.784  30.777  1.00 15.17      I    H  
+ATOM     19  O   HOH I   7      14.126  38.797  22.890  1.00 14.53      I    O  
+ATOM     20  H1  HOH I   7      13.507  38.817  23.678  1.00 14.53      I    H  
+ATOM     21  H2  HOH I   7      14.781  38.045  23.000  1.00 14.53      I    H  
+ATOM     22  O   HOH I   8       8.975  42.614  27.354  1.00 22.49      I    O  
+ATOM     23  H1  HOH I   8       9.974  42.590  27.454  1.00 22.49      I    H  
+ATOM     24  H2  HOH I   8       8.594  43.116  28.132  1.00 22.49      I    H  
+ATOM     25  O   HOH I   9       5.847  34.694  34.588  1.00 27.86      I    O  
+ATOM     26  H1  HOH I   9       6.320  35.391  35.133  1.00 27.86      I    H  
+ATOM     27  H2  HOH I   9       5.701  33.892  35.172  1.00 27.86      I    H  
+ATOM     28  O   HOH I  10       8.461  44.132  24.802  1.00 42.92      I    O  
+ATOM     29  H1  HOH I  10       8.550  43.585  25.638  1.00 42.92      I    H  
+ATOM     30  H2  HOH I  10       8.158  45.055  25.038  1.00 42.92      I    H  
+ATOM     31  O   HOH I  11       6.633  46.549  39.175  1.00 26.44      I    O  
+ATOM     32  H1  HOH I  11       7.558  46.356  39.515  1.00 26.44      I    H  
+ATOM     33  H2  HOH I  11       6.658  46.631  38.175  1.00 26.44      I    H  
+ATOM     34  O   HOH I  12       6.317  41.326  30.970  1.00 27.20      I    O  
+ATOM     35  H1  HOH I  12       6.621  41.244  31.924  1.00 27.20      I    H  
+ATOM     36  H2  HOH I  12       7.067  41.703  30.424  1.00 27.20      I    H  
+ATOM     37  O   HOH I  13       6.304  38.923  39.204  1.00 38.61      I    O  
+ATOM     38  H1  HOH I  13       6.517  39.687  39.818  1.00 38.61      I    H  
+ATOM     39  H2  HOH I  13       7.125  38.689  38.679  1.00 38.61      I    H  
+ATOM     40  O   HOH I  14       7.501  35.970  36.704  1.00 41.12      I    O  
+ATOM     41  H1  HOH I  14       8.373  36.034  36.214  1.00 41.12      I    H  
+ATOM     42  H2  HOH I  14       7.677  36.019  37.689  1.00 41.12      I    H  
+ATOM     43  O   HOH I  15       8.653  39.558  27.838  1.00 21.77      I    O  
+ATOM     44  H1  HOH I  15       8.852  39.075  26.985  1.00 21.77      I    H  
+ATOM     45  H2  HOH I  15       8.521  40.534  27.646  1.00 21.77      I    H  
+ATOM     46  O   HOH I  16       6.672  46.808  36.120  1.00 37.79      I    O  
+ATOM     47  H1  HOH I  16       6.505  47.563  35.485  1.00 37.79      I    H  
+ATOM     48  H2  HOH I  16       7.485  46.303  35.822  1.00 37.79      I    H  
+ATOM     49  O   HOH I  17       6.287  37.624  26.999  1.00 37.83      I    O  
+ATOM     50  H1  HOH I  17       6.511  37.392  26.046  1.00 37.83      I    H  
+ATOM     51  H2  HOH I  17       6.890  38.360  27.309  1.00 37.83      I    H  
+END
