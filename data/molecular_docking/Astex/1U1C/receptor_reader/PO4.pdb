@@ -1,0 +1,45 @@
+TITLE     MDANALYSIS FRAME 0: Created by PDBWriter
+CRYST1    1.000    1.000    1.000  90.00  90.00  90.00 P 1           1
+REMARK     285 UNITARY VALUES FOR THE UNIT CELL AUTOMATICALLY SET
+REMARK     285 BY MDANALYSIS PDBWRITER BECAUSE UNIT CELL INFORMATION
+REMARK     285 WAS MISSING.
+REMARK     285 PROTEIN DATA BANK CONVENTIONS REQUIRE THAT
+REMARK     285 CRYST1 RECORD IS INCLUDED, BUT THE VALUES ON
+REMARK     285 THIS RECORD ARE MEANINGLESS.
+ATOM      1  P1  PO4 H   1       8.013  96.445  74.111  1.00 29.65      H    P  
+ATOM      2  O2  PO4 H   1       7.705  96.971  72.703  1.00 29.73      H    O  
+ATOM      3  O3  PO4 H   1       6.789  95.853  74.829  1.00 30.57      H    O1-
+ATOM      4  O4  PO4 H   1       9.233  95.513  74.148  1.00 30.16      H    O1-
+ATOM      5  O5  PO4 H   1       8.493  97.827  75.040  1.00 29.45      H    O  
+ATOM      6  H6  PO4 H   1       9.304  98.277  74.792  1.00 29.45      H    H  
+ATOM      7  P1  PO4 H   2      -3.013  98.351  56.147  1.00 30.71      H    P  
+ATOM      8  O2  PO4 H   2      -2.746  98.355  57.659  1.00 31.23      H    O  
+ATOM      9  O3  PO4 H   2      -1.837  97.813  55.312  1.00 30.97      H    O1-
+ATOM     10  O4  PO4 H   2      -4.292  97.204  55.918  1.00 31.65      H    O  
+ATOM     11  O5  PO4 H   2      -3.578  99.673  55.609  1.00 30.94      H    O1-
+ATOM     12  H6  PO4 H   2      -4.499  96.934  55.021  1.00 31.65      H    H  
+ATOM     13  P1  PO4 H   3      -7.903 126.434  97.967  1.00 41.59      H    P  
+ATOM     14  O2  PO4 H   3      -7.616 127.752  97.237  1.00 41.18      H    O  
+ATOM     15  O3  PO4 H   3      -6.831 126.063  99.006  1.00 41.50      H    O1-
+ATOM     16  O4  PO4 H   3      -9.350 126.719  98.874  1.00 41.52      H    O  
+ATOM     17  O5  PO4 H   3      -8.263 125.274  97.027  1.00 41.50      H    O1-
+ATOM     18  H6  PO4 H   3     -10.180 126.403  98.505  1.00 41.52      H    H  
+ATOM     19  P1  PO4 H   4       2.812 143.762  92.358  1.00 38.41      H    P  
+ATOM     20  O2  PO4 H   4       2.575 142.283  92.691  1.00 38.45      H    O  
+ATOM     21  O3  PO4 H   4       1.623 144.672  92.711  1.00 38.41      H    O1-
+ATOM     22  O4  PO4 H   4       4.096 144.259  93.409  1.00 38.55      H    O  
+ATOM     23  O5  PO4 H   4       3.353 143.997  90.940  1.00 38.43      H    O1-
+ATOM     24  H6  PO4 H   4       4.985 144.301  93.046  1.00 38.55      H    H  
+ATOM     25  P1  PO4 H   5      -6.678 149.001  52.278  1.00 37.59      H    P  
+ATOM     26  O2  PO4 H   5      -6.143 147.795  51.495  1.00 38.09      H    O  
+ATOM     27  O3  PO4 H   5      -5.707 150.195  52.308  1.00 38.44      H    O1-
+ATOM     28  O4  PO4 H   5      -8.050 149.550  51.379  1.00 38.43      H    O  
+ATOM     29  O5  PO4 H   5      -7.242 148.641  53.661  1.00 37.32      H    O1-
+ATOM     30  H6  PO4 H   5      -8.924 149.339  51.721  1.00 38.43      H    H  
+ATOM     31  P1  PO4 H   6       6.881 136.211  42.142  1.00 31.82      H    P  
+ATOM     32  O2  PO4 H   6       6.228 137.163  43.151  1.00 31.27      H    O  
+ATOM     33  O3  PO4 H   6       5.613 135.719  41.062  1.00 31.93      H    O  
+ATOM     34  O4  PO4 H   6       7.921 136.904  41.247  1.00 31.65      H    O1-
+ATOM     35  O5  PO4 H   6       7.402 134.912  42.772  1.00 31.86      H    O1-
+ATOM     36  H6  PO4 H   6       5.691 134.862  40.638  1.00 31.93      H    H  
+END

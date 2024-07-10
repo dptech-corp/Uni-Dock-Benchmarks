@@ -1,0 +1,82 @@
+TITLE     MDANALYSIS FRAME 0: Created by PDBWriter
+CRYST1    1.000    1.000    1.000  90.00  90.00  90.00 P 1           1
+REMARK     285 UNITARY VALUES FOR THE UNIT CELL AUTOMATICALLY SET
+REMARK     285 BY MDANALYSIS PDBWRITER BECAUSE UNIT CELL INFORMATION
+REMARK     285 WAS MISSING.
+REMARK     285 PROTEIN DATA BANK CONVENTIONS REQUIRE THAT
+REMARK     285 CRYST1 RECORD IS INCLUDED, BUT THE VALUES ON
+REMARK     285 THIS RECORD ARE MEANINGLESS.
+ATOM      1  P1  NAP C   1      22.759  -4.806  27.335  1.00  9.61      C    P  
+ATOM      2  O2  NAP C   1      23.718  -3.696  26.979  1.00 10.70      C    O  
+ATOM      3  O3  NAP C   1      21.676  -4.657  28.381  1.00  8.10      C    O1-
+ATOM      4  O4  NAP C   1      23.703  -6.213  27.654  1.00  8.95      C    O  
+ATOM      5  C5  NAP C   1      23.112  -7.302  28.343  1.00  9.88      C    C  
+ATOM      6  C6  NAP C   1      24.267  -8.252  28.724  1.00 10.01      C    C  
+ATOM      7  O7  NAP C   1      25.032  -7.663  29.776  1.00 10.87      C    O  
+ATOM      8  C8  NAP C   1      23.888  -9.644  29.255  1.00 11.39      C    C  
+ATOM      9  O9  NAP C   1      24.821 -10.621  28.814  1.00  8.61      C    O  
+ATOM     10  C10 NAP C   1      23.918  -9.476  30.764  1.00 12.05      C    C  
+ATOM     11  O11 NAP C   1      24.184 -10.685  31.460  1.00 12.83      C    O  
+ATOM     12  C12 NAP C   1      25.052  -8.478  30.909  1.00 10.47      C    C  
+ATOM     13  N13 NAP C   1      25.054  -7.660  32.178  1.00  9.51      C    N  
+ATOM     14  C14 NAP C   1      24.007  -7.024  32.736  1.00 10.89      C    C  
+ATOM     15  N15 NAP C   1      24.276  -6.445  33.873  1.00 13.95      C    N  
+ATOM     16  C16 NAP C   1      25.569  -6.731  34.081  1.00 11.90      C    C  
+ATOM     17  C17 NAP C   1      26.428  -6.406  35.150  1.00 13.03      C    C  
+ATOM     18  N18 NAP C   1      26.001  -5.671  36.248  1.00  9.55      C    N  
+ATOM     19  N19 NAP C   1      27.714  -6.848  35.105  1.00 14.36      C    N  
+ATOM     20  C20 NAP C   1      28.085  -7.578  34.043  1.00 13.70      C    C  
+ATOM     21  N21 NAP C   1      27.362  -7.958  32.976  1.00 10.83      C    N  
+ATOM     22  C22 NAP C   1      26.091  -7.491  33.050  1.00 12.25      C    C  
+ATOM     23  O23 NAP C   1      22.036  -5.263  25.863  1.00  9.55      C    O  
+ATOM     24  P24 NAP C   1      20.596  -5.784  25.129  1.00  9.63      C    P  
+ATOM     25  O25 NAP C   1      19.892  -6.763  26.039  1.00 10.13      C    O  
+ATOM     26  O26 NAP C   1      20.903  -6.094  23.688  1.00 10.38      C    O1-
+ATOM     27  O27 NAP C   1      19.808  -4.252  25.157  1.00  9.48      C    O  
+ATOM     28  C28 NAP C   1      19.026  -3.924  26.289  1.00  8.30      C    C  
+ATOM     29  C29 NAP C   1      17.523  -4.100  26.004  1.00  7.99      C    C  
+ATOM     30  O30 NAP C   1      17.102  -3.142  25.040  1.00  8.60      C    O  
+ATOM     31  C31 NAP C   1      17.078  -5.429  25.380  1.00  9.76      C    C  
+ATOM     32  O32 NAP C   1      16.967  -6.508  26.280  1.00 10.02      C    O  
+ATOM     33  C33 NAP C   1      15.785  -5.063  24.669  1.00  8.19      C    C  
+ATOM     34  O34 NAP C   1      14.663  -4.994  25.539  1.00  6.74      C    O  
+ATOM     35  C35 NAP C   1      16.167  -3.673  24.143  1.00  8.44      C    C  
+ATOM     36  N36 NAP C   1      16.662  -3.596  22.696  1.00  8.40      C    N1+
+ATOM     37  C37 NAP C   1      15.838  -3.069  21.759  1.00  6.82      C    C  
+ATOM     38  C38 NAP C   1      16.240  -2.971  20.418  1.00  7.19      C    C  
+ATOM     39  C39 NAP C   1      15.370  -2.324  19.373  1.00  9.00      C    C  
+ATOM     40  O40 NAP C   1      15.484  -2.591  18.179  1.00 11.77      C    O  
+ATOM     41  N41 NAP C   1      14.501  -1.408  19.802  1.00  9.91      C    N  
+ATOM     42  C42 NAP C   1      17.484  -3.505  20.062  1.00  7.19      C    C  
+ATOM     43  C43 NAP C   1      18.312  -4.058  21.036  1.00  8.15      C    C  
+ATOM     44  C44 NAP C   1      17.886  -4.073  22.362  1.00  5.87      C    C  
+ATOM     45  P45 NAP C   1      22.932 -11.580  32.300  1.00 13.24      C    P  
+ATOM     46  O46 NAP C   1      21.686 -11.527  31.401  1.00 10.49      C    O  
+ATOM     47  O47 NAP C   1      23.486 -13.004  32.466  1.00 11.93      C    O1-
+ATOM     48  O48 NAP C   1      22.731 -10.859  33.642  1.00 11.32      C    O1-
+ATOM     49  H49 NAP C   1      22.394  -7.790  27.684  1.00  9.88      C    H  
+ATOM     50  H50 NAP C   1      22.590  -6.961  29.236  1.00  9.88      C    H  
+ATOM     51  H51 NAP C   1      24.891  -8.364  27.839  1.00 10.01      C    H  
+ATOM     52  H52 NAP C   1      22.888  -9.932  28.931  1.00 11.39      C    H  
+ATOM     53  H53 NAP C   1      24.806 -10.634  27.853  1.00  8.61      C    H  
+ATOM     54  H54 NAP C   1      22.992  -9.033  31.135  1.00 12.05      C    H  
+ATOM     55  H55 NAP C   1      26.006  -9.008  30.874  1.00 10.47      C    H  
+ATOM     56  H56 NAP C   1      23.057  -7.002  32.242  1.00 10.89      C    H  
+ATOM     57  H57 NAP C   1      26.671  -5.429  36.969  1.00  9.55      C    H  
+ATOM     58  H58 NAP C   1      25.109  -5.196  36.194  1.00  9.55      C    H  
+ATOM     59  H59 NAP C   1      29.111  -7.918  34.052  1.00 13.70      C    H  
+ATOM     60  H60 NAP C   1      19.224  -2.880  26.529  1.00  8.30      C    H  
+ATOM     61  H61 NAP C   1      19.323  -4.493  27.169  1.00  8.30      C    H  
+ATOM     62  H62 NAP C   1      16.964  -3.877  26.912  1.00  7.99      C    H  
+ATOM     63  H63 NAP C   1      17.785  -5.744  24.619  1.00  9.76      C    H  
+ATOM     64  H64 NAP C   1      17.857  -6.739  26.570  1.00 10.02      C    H  
+ATOM     65  H65 NAP C   1      15.575  -5.728  23.833  1.00  8.19      C    H  
+ATOM     66  H66 NAP C   1      14.033  -4.350  25.197  1.00  6.74      C    H  
+ATOM     67  H67 NAP C   1      15.321  -2.990  24.214  1.00  8.44      C    H  
+ATOM     68  H68 NAP C   1      14.871  -2.743  22.108  1.00  6.82      C    H  
+ATOM     69  H69 NAP C   1      13.918  -0.912  19.141  1.00  9.91      C    H  
+ATOM     70  H70 NAP C   1      14.480  -1.141  20.777  1.00  9.91      C    H  
+ATOM     71  H71 NAP C   1      17.825  -3.467  19.039  1.00  7.19      C    H  
+ATOM     72  H72 NAP C   1      19.286  -4.439  20.770  1.00  8.15      C    H  
+ATOM     73  H73 NAP C   1      18.508  -4.445  23.155  1.00  5.87      C    H  
+END
