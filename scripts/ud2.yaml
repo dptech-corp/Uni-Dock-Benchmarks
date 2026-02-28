@@ -1,0 +1,37 @@
+# root_dir is the one containing this yaml
+# For item with a type tag (!!), the value is REQUIRED
+
+Advanced:
+  seed: !!int 9996 # explicit random see
+  exhaustiveness: !!int 512 # MC candidates count (roughly proportional to time). If given, value for search_mode will be overridden
+  randomize: !!bool true # Whether to randomize input pose before performing the global search.
+  mc_steps: !!int 40 # If given, value for search_mode will be overridden.
+  opt_steps: !!int -1 # Optimization steps after the global search
+  refine_steps: !!int 1 # Refinement steps after clustering
+  rmsd_limit: !!float 1.0 # minimum RMSD between output poses
+  num_pose: !!int 10 # number of the finally generated poses to output
+  energy_range: !!float 10.0 # maximum energy difference between output poses and the best binding mode
+  tor_lib: false
+
+Hardware:
+  ncpu: !!int 10 # [Not loaded] the number of CPUs to use 
+  gpu_device_id: !!int 0 # GPU device id (default 0)
+  max_gpu_memory: !!int 0 # maximum gpu memory (MB) to use (default=0, use all available GPU memory)
+
+
+Settings:
+  task: !!str screen # screen | score | mc
+  search_mode: !!str free # fast, balance or detail, using recommended settings of exhaustiveness and search steps;
+  constraint_docking: !!bool false # Fixed the translation & orientation of the ligand if True
+  center_x: !!float -22.33       # X coordinate of the center (Angstrom)
+  center_y: !!float 13.31
+  center_z: !!float 27.36
+  size_x: !!float 30                # size in the X dimension (Angstrom)")
+  size_y: !!float 30
+  size_z: !!float 30
+
+Outputs:
+  dir: !!str ./res2     # output directory, default is root_dir/result
+
+Inputs:
+  json: !!str ./ud2.json  # json file containing receptor & ligands info. If given the following three items will be ignored

@@ -1,0 +1,7 @@
+tqdm
+rdkit
+wget
+numpy
+pandas
+pyyaml
+matplotlib

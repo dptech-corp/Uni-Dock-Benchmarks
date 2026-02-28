@@ -1,0 +1,24 @@
+# Downloaded benchmark data
+data/
+tmp_data.zip
+tmp_data_extract/
+*.png
+*.PNG
+
+# Python cache/artifacts
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Editor/IDE temp files
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
