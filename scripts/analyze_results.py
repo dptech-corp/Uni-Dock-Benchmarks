@@ -121,7 +121,7 @@ def main() -> int:
     logging.basicConfig(level=logging.INFO, format="[%(levelname)s] %(message)s")
     args = parse_args()
     if pd is None:
-        logging.error("pandas is required. Please run: pip install -r scripts/requirements.txt")
+        logging.error("pandas is required. Please run: pip install pandas")
         return 1
 
     run_dirs = iter_run_dirs(args.runs)
