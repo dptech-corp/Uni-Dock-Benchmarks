@@ -5,7 +5,7 @@ DOWNLOAD_URL="https://bohrium-api.dp.tech/ds-dl/udbench-o67b-v1.zip"
 ZIP_FILE="tmp_data.zip"
 TMP_DIR="tmp_data_extract"
 FINAL_DIR="data"
-EXPECTED_SHA256=""  # TODO: fill in after first download, e.g. "a1b2c3d4..."
+EXPECTED_SHA256="d66549b1c8a44bc4a581c0bca0b0e7780e90bdaf9a49a902cacd68acede85ceb"
 
 echo "Downloading data archive..."
 if ! { curl -L -o "$ZIP_FILE" "$DOWNLOAD_URL" || wget -O "$ZIP_FILE" "$DOWNLOAD_URL"; }; then
