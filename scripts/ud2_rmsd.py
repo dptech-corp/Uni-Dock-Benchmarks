@@ -8,7 +8,7 @@ import sys
 import os
 import yaml
 import argparse
-from utils import config
+from engines.unidock_v2 import FMT_UD2
 from utils.calc_rmsd import tran_json_to_sdf, calc_rmsd
 
 if __name__ == "__main__":
@@ -32,7 +32,7 @@ if __name__ == "__main__":
     dataset = "Astex"
     id_pdb = dp_ligand.strip().split("/")[-1].strip()
 
-    fp_ligand_input = os.path.join(dp_ligand, config.FMT_UD2[dataset]["sdf"].format(id_pdb))
+    fp_ligand_input = os.path.join(dp_ligand, FMT_UD2[dataset]["sdf"].format(id_pdb))
     fp_ligand_ref = os.path.join(dp_ligand, f"{id_pdb}_ligand.sdf")
 
     tran_json_to_sdf(fp_res_json, fp_ligand_input, fp_res_sdf)

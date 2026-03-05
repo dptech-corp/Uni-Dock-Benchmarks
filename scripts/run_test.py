@@ -21,6 +21,7 @@ import logging
 from run_dock import run_benchmark_molecular_docking
 from run_screen import run_benchmark_virtual_screening
 from utils.config import BenchmarkConfig
+from engines import create_engine
 
 def run_benchmark_cli():
     import argparse
@@ -93,11 +94,13 @@ def run_benchmark_cli():
     config_str = benchmark_config.print_config()
     logging.info(f"\n{config_str}\n")
     
-    # Run benchmark based on type
+    # Create engine and run benchmark
+    engine = create_engine(benchmark_config)
+
     if args.type == "molecular_docking":
-        run_benchmark_molecular_docking(benchmark_config)
+        run_benchmark_molecular_docking(engine)
     else:  # virtual_screening
-        run_benchmark_virtual_screening(benchmark_config)
+        run_benchmark_virtual_screening(engine)
 
 
 if __name__ == "__main__":
