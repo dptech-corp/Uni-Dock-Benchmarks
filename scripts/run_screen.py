@@ -36,7 +36,7 @@ def analysis_metrics(dp_res: str):
         df_dataset = df_res[df_res["dataset"] == dataset]         
         N_total = len(df_dataset)
         N_active = len(df_dataset[df_dataset["Active"] == 1])
-        df_dataset.sort_values(by='Affinity', ascending=True, inplace=True) 
+        df_dataset = df_dataset.sort_values(by='Affinity', ascending=True)
         avr_time = float(df_dataset.iloc[0]["cost_time"])
         mode = str(df_dataset.iloc[0]["mode"])
         line = [dataset, mode, avr_time, N_total, N_active, N_total - N_active]

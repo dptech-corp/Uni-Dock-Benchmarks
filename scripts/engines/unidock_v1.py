@@ -1,11 +1,14 @@
 """Uni-Dock V1 engine implementation."""
 
 import os
+import re
 from typing import List, Tuple
 
 from engines.base import DockingEngine
 from utils.calc_rmsd import calc_rmsd
 from utils.myio import read_text, write_text
+
+_ENERGY_RE = re.compile(r'ENERGY=([-\d.eE+]+)')
 
 
 # Default file-path templates for Uni-Dock V1.
@@ -131,13 +134,10 @@ class UniDockV1Engine(DockingEngine):
             for fn in [i for i in os.listdir(dp) if i.endswith(".sdf")]:
                 fp_sdf = os.path.join(dp, fn)
                 ss = read_text(fp_sdf)
-                ligand_name = fn.strip()[:-8]
-                energy = float(
-                    ss.strip()
-                    .split("$$$$")[0]
-                    .split("ENERGY=")[-1]
-                    .split("LOWER_BOUND=")[0]
-                    .strip()
-                )
+                stem, _ = os.path.splitext(fn)
+                ligand_name = stem.removesuffix("_out")
+                first_block = ss.split("$$$$")[0]
+                match = _ENERGY_RE.search(first_block)
+                energy = float(match.group(1))
                 results.append((ligand_name, energy, active))
         return results
