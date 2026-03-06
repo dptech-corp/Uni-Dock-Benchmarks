@@ -36,7 +36,8 @@ def run_benchmark_cli():
     parser.add_argument("--nowater", action='store_true', help="Use receptor without water (default: uses water-containing receptor)")
     parser.add_argument("--rootdir", type=str, default=None, help=
                         "Root directory of the data, namely the 'Uni-Dock-Benchmarks' dir. If it's not provided, pls run under the 'Uni-Dock-Benchmarks' dir.")
-    
+    parser.add_argument("--dataset", type=str, default=None, help=
+                        "Run only this dataset (e.g. 'Astex'). If not provided, run all datasets.")
 
     args = parser.parse_args()
 
@@ -98,7 +99,7 @@ def run_benchmark_cli():
     engine = create_engine(benchmark_config)
 
     if args.type == "molecular_docking":
-        run_benchmark_molecular_docking(engine)
+        run_benchmark_molecular_docking(engine, datasets=[args.dataset] if args.dataset else None)
     else:  # virtual_screening
         run_benchmark_virtual_screening(engine)
 

@@ -8,7 +8,7 @@ show_help() {
   cat << 'EOF'
 Usage:
   # Single benchmark run
-  ./run.sh single --savedir <DIR> --bin <BIN> --version <1|2> --type <molecular_docking|virtual_screening> [--device ID] [--seed SEED] [--nowater]
+  ./run.sh single --savedir <DIR> --bin <BIN> --version <1|2> --type <molecular_docking|virtual_screening> [--device ID] [--seed SEED] [--nowater] [--dataset NAME]
 
   # Batch benchmark run (3 seeds/devices, nohup background)
   ./run.sh batch <savedir_basename> <device1> <device2> <device3> [--bin BIN] [--version 1|2] [--type molecular_docking|virtual_screening] [--nowater]
