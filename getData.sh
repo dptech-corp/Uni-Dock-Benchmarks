@@ -5,11 +5,29 @@ DOWNLOAD_URL="https://bohrium-api.dp.tech/ds-dl/udbench-o67b-v1.zip"
 ZIP_FILE="tmp_data.zip"
 TMP_DIR="tmp_data_extract"
 FINAL_DIR="data"
+EXPECTED_SHA256="d66549b1c8a44bc4a581c0bca0b0e7780e90bdaf9a49a902cacd68acede85ceb"
 
 echo "Downloading data archive..."
 if ! { curl -L -o "$ZIP_FILE" "$DOWNLOAD_URL" || wget -O "$ZIP_FILE" "$DOWNLOAD_URL"; }; then
     echo "Download failed, please check internet connection and the URL."
     exit 1
+fi
+
+if [ -n "$EXPECTED_SHA256" ]; then
+    echo "Verifying SHA256 checksum..."
+    ACTUAL_SHA256=$(sha256sum "$ZIP_FILE" | awk '{print $1}')
+    if [ "$ACTUAL_SHA256" != "$EXPECTED_SHA256" ]; then
+        echo "ERROR: SHA256 checksum mismatch!"
+        echo "  Expected: $EXPECTED_SHA256"
+        echo "  Actual:   $ACTUAL_SHA256"
+        echo "The downloaded file may be corrupted. Aborting."
+        rm -f "$ZIP_FILE"
+        exit 1
+    fi
+    echo "Checksum OK."
+else
+    echo "WARNING: No expected SHA256 configured, skipping checksum verification."
+    echo "  Actual SHA256: $(sha256sum "$ZIP_FILE" | awk '{print $1}')"
 fi
 
 echo "Extracting archive..."
@@ -19,7 +37,15 @@ unzip -oq "$ZIP_FILE" -d "$TMP_DIR"
 rm -f "$ZIP_FILE"
 
 echo "Preparing ./$FINAL_DIR ..."
-rm -rf "$FINAL_DIR"
+if [ -d "$FINAL_DIR" ]; then
+    echo "WARNING: ./$FINAL_DIR already exists and will be REPLACED."
+    read -r -p "Continue? [y/N] " confirm
+    if [[ ! "$confirm" =~ ^[Yy]$ ]]; then
+        echo "Aborted. Extracted data is kept in ./$TMP_DIR"
+        exit 0
+    fi
+    rm -rf "$FINAL_DIR"
+fi
 
 if [ -d "$TMP_DIR/$FINAL_DIR" ]; then
     mv "$TMP_DIR/$FINAL_DIR" "$FINAL_DIR"

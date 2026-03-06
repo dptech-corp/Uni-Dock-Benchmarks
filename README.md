@@ -5,10 +5,13 @@ The datasets include prepared structures and input files for both Uni-Dock V1 an
 
 ## Data
 
-Benchmark data within the repository is categorized into two primary sections:
+**Important Note**
+Some benchmark data files exceed GitHub's file size limits and are stored in cloud storage. To download the complete benchmark data directory, please run the following command in your terminal:
+```sh
+./getData.sh
+```
 
-- `molecular_docking`
-- `virtual_screening`
+The benchmark data is categorized into two primary sections: `molecular_docking`and `virtual_screening`.
 
 ### Molecular Docking Benchmarks
 
@@ -31,7 +34,7 @@ We prepare the receptor structure in two versions, protein with co-crystallized 
 
 The directory structure for each dataset is as follows:
 
-```
+```sh
 <DataSetName>
 ├── <PDB_ID>
 │   ├── <PDB_ID>_ligand.sdf                    # Ligand co-crystal structure processed in SDF format
@@ -94,11 +97,6 @@ The directory structure for each dataset is as follows:
     └── receptor_parameterized.dms            # Prepared and parameterized receptor structure in DMS format
 ```
 
-**Important Note**
-Some benchmark data files exceed GitHub's file size limits and are stored in cloud storage. To download the complete benchmark data directory, please run the following command in your terminal:
-```sh
-./getData.sh
-```
 
 ---
 
@@ -106,8 +104,19 @@ Some benchmark data files exceed GitHub's file size limits and are stored in clo
 
 ### 1) Install Python dependencies
 
+The benchmark scripts require the following Python packages:
+
+- `tqdm`
+- `rdkit`
+- `numpy`
+- `pandas`
+- `pyyaml`
+- `matplotlib` (optional, for plot generation)
+
+Install them with your preferred package manager, for example:
+
 ```sh
-pip install -r scripts/requirements.txt
+pip install tqdm rdkit numpy pandas pyyaml matplotlib
 ```
 
 ### 2) Download benchmark data

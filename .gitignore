@@ -4,6 +4,10 @@ tmp_data.zip
 tmp_data_extract/
 *.png
 *.PNG
+*.zip
+*.ZIP
+_test_*
+*.log
 
 # Python cache/artifacts
 __pycache__/
