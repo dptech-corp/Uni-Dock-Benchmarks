@@ -74,8 +74,18 @@ def cal_rmsd_ud2(fp_ligand_ref, fp_res_json, fp_ligand_input):
 def rerun_rmsd_update_results(dp_res: str, dp_data: str, config):
     """
     Legacy helper from old molecular docking debug workflow.
+
+    NOTE: This function is broken since the refactoring to the Engine abstraction.
+    The old ``cal_rmsd`` free-function no longer exists; RMSD computation is now
+    handled by ``DockingEngine.compute_dock_rmsd``.  Kept here only as a
+    reference for the rerun-and-update-CSV pattern.
     """
-    from run_dock import analysis_metrics, cal_rmsd
+    raise NotImplementedError(
+        "rerun_rmsd_update_results is deprecated. "
+        "Use DockingEngine.compute_dock_rmsd via the engine abstraction instead."
+    )
+    # Original imports (no longer valid):
+    # from run_dock import analysis_metrics, cal_rmsd
     from utils.config import CSV_NAME
 
     fp_res_all = os.path.join(dp_res, CSV_NAME)

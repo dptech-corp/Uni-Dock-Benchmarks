@@ -120,7 +120,7 @@ def run_benchmark_virtual_screening(engine: DockingEngine, rerun: bool = True):
                 df_res_mode.to_csv(fp_res_mode, index=False)
                 logging.info(f"{dataset}-{search_mode} finished")
 
-            except:
+            except Exception:
                 logging.error(traceback.format_exc())
             
             if df_res_mode is not None:

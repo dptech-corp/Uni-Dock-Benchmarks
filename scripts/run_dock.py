@@ -111,7 +111,7 @@ def run_benchmark_molecular_docking(engine: DockingEngine, rerun: bool = True, d
                     )
                     logging.info(f"{id_pdb} finished")
 
-                except:
+                except Exception:
                     list_res_mode.append([dataset, id_pdb, search_mode, None, -1, 
                         None, None, None]
                     )
