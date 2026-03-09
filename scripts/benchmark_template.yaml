@@ -1,0 +1,70 @@
+# ============================================================
+# Uni-Dock Benchmark Configuration Template
+# ============================================================
+# Copy this file, edit the values, and run:
+#
+#   ./run.sh your_config.yaml
+#
+# ============================================================
+
+# --- Engine ---
+# Uni-Dock engine settings.
+engine:
+  version: 2                           # Uni-Dock version: 1 | 2
+  binary: "ud2"                        # Path or name of the docking binary
+
+# --- Benchmark ---
+# What to benchmark.
+benchmark:
+  type: "molecular_docking"            # "molecular_docking" | "virtual_screening"
+  nowater: false                       # true = protein-only receptor (molecular_docking only)
+  datasets: null                       # null = all datasets for the given type
+                                       # Or specify a list:
+                                       #   ["Astex", "CASF2016", "PoseBuster"]
+                                       #
+                                       # Available molecular_docking datasets:
+                                       #   Astex, CASF2016, PoseBuster
+                                       #
+                                       # Available virtual_screening datasets:
+                                       #   D4, GBA, NSP3, PPARG, sigma2
+
+# --- Output ---
+output:
+  savedir: "results/my_benchmark"      # Base output directory
+                                       # Each run saves to: <savedir>/run_<i>/
+
+# --- Runs ---
+# Each entry = one complete benchmark (all specified datasets, one seed, one GPU).
+#
+# Scheduling rules:
+#   - Runs on the SAME device  -> SEQUENTIAL (ensures accurate GPU timing)
+#   - Runs on DIFFERENT devices -> PARALLEL
+#
+# Examples:
+#
+#   3 GPUs, fully parallel:
+#     runs:
+#       - { seed: 121, device: 0 }
+#       - { seed: 122, device: 1 }
+#       - { seed: 123, device: 2 }
+#
+#   1 GPU, fully sequential:
+#     runs:
+#       - { seed: 121, device: 0 }
+#       - { seed: 122, device: 0 }
+#       - { seed: 123, device: 0 }
+#
+#   2 GPUs, mixed (2 sequential per GPU, 2 groups in parallel):
+#     runs:
+#       - { seed: 121, device: 0 }
+#       - { seed: 122, device: 0 }
+#       - { seed: 123, device: 1 }
+#       - { seed: 124, device: 1 }
+#
+runs:
+  - seed: 121
+    device: 0
+  - seed: 122
+    device: 1
+  - seed: 123
+    device: 2

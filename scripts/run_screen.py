@@ -53,13 +53,14 @@ def analysis_metrics(dp_res: str):
     df_metrics.to_csv(fp_metrics, index=False, float_format='%.3f')
 
 
-def run_benchmark_virtual_screening(engine: DockingEngine, rerun: bool = True):
+def run_benchmark_virtual_screening(engine: DockingEngine, rerun: bool = True, datasets=None):
     """
     Run virtual screening benchmark.
     
     Args:
         engine: DockingEngine instance (V1 or V2)
         rerun: Whether to rerun if results already exist
+        datasets: List of dataset names to run (e.g. ['D4']). None means all.
     """
     config = engine.config
     dp_data, dp_res = prepare_dirs(config)
@@ -67,8 +68,12 @@ def run_benchmark_virtual_screening(engine: DockingEngine, rerun: bool = True):
     fp_res_all = os.path.join(dp_res, CSV_NAME)
     df_res_all = []
 
+    all_datasets = sorted(os.listdir(dp_data))
+    if datasets:
+        all_datasets = [d for d in all_datasets if d in datasets]
+
     # For each dataset
-    for dataset in sorted(os.listdir(dp_data)):
+    for dataset in all_datasets:
         dp_data_dataset = os.path.join(dp_data, dataset)
     
         dp_res_dataset = os.path.join(dp_res, dataset)

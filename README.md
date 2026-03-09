@@ -127,12 +127,21 @@ pip install tqdm rdkit numpy pandas pyyaml matplotlib
 
 ### 3) Run benchmarks from repository root
 
-**Single run (foreground):**
+**YAML-driven (recommended):**
+
+Copy the template and edit it:
+```sh
+cp scripts/benchmark_template.yaml my_bench.yaml
+# edit my_bench.yaml (engine, datasets, seeds, GPUs, ...)
+./run.sh my_bench.yaml
+```
+
+**Single run (foreground, legacy CLI):**
 ```sh
 ./run.sh single --savedir results/dock_v2 --bin ud2 --version 2 --type molecular_docking --device 0 --seed 123
 ```
 
-**Batch run (3 devices/seeds in background):**
+**Batch run (3 devices/seeds in background, legacy CLI):**
 ```sh
 ./run.sh batch results/dock_v2 0 1 2 --bin ud2 --version 2 --type molecular_docking
 ```
@@ -143,12 +152,26 @@ pip install tqdm rdkit numpy pandas pyyaml matplotlib
 
 Recommended root-level entry scripts:
 
-- `run.sh`: unified benchmark runner (`single` / `batch`)
+- `run.sh`: unified benchmark runner (`<config.yaml>` / `single` / `batch`)
 - `analyze.sh`: merge benchmark outputs and optionally generate quick plots
 
 ### `run.sh` - Unified Benchmark Runner
 
-#### Basic Usage
+#### YAML Config Mode (Recommended)
+
+Create a YAML config file based on the template (see `scripts/benchmark_template.yaml`):
+
+```sh
+cp scripts/benchmark_template.yaml my_bench.yaml
+# edit my_bench.yaml
+./run.sh my_bench.yaml
+```
+
+The YAML config controls engine version/binary, benchmark type, datasets, output directory,
+and run definitions (seed + GPU per repeat). Runs on the same GPU execute sequentially
+for accurate timing; runs on different GPUs execute in parallel.
+
+#### Legacy CLI Modes
 
 **Molecular Docking:**
 ```sh
@@ -167,22 +190,9 @@ Recommended root-level entry scripts:
 ./run.sh single --version 2 --bin ud2 --type virtual_screening --device 0 --savedir res_vs --seed 122
 ```
 
-#### Parameters
-
-For `single` mode, parameters are the same as `scripts/run_test.py`:
-
-* `--savedir <DIR>` (required) - output directory for results
-* `--bin <PATH>` (required) - path to the Uni-Dock executable binary
-* `--version <1|2>` (required) - Uni-Dock version
-* `--type <molecular_docking|virtual_screening>` (required) - benchmark type
-* `--device <ID>` (optional, default: 0) - GPU device ID
-* `--seed <INTEGER>` (optional, default: 123) - random seed
-* `--nowater` (optional) - use receptor without water (only for molecular_docking)
-
-For `batch` mode, use:
-
+**Batch (3 seeds, 3 GPUs):**
 ```sh
-./run.sh batch <savedir_basename> <device1> <device2> <device3> [options]
+./run.sh batch results/dock_v2 0 1 2 --bin ud2 --version 2 --type molecular_docking
 ```
 
 ### `analyze.sh` - Result Aggregation and Quick Plotting
