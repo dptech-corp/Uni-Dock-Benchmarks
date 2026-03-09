@@ -102,118 +102,55 @@ The directory structure for each dataset is as follows:
 
 ## Quick Start
 
-### 1) Install Python dependencies
-
-The benchmark scripts require the following Python packages:
-
-- `tqdm`
-- `rdkit`
-- `numpy`
-- `pandas`
-- `pyyaml`
-- `matplotlib` (optional, for plot generation)
-
-Install them with your preferred package manager, for example:
+### 1. Install Python dependencies
 
 ```sh
 pip install tqdm rdkit numpy pandas pyyaml matplotlib
 ```
 
-### 2) Download benchmark data
+### 2. Download benchmark data
 
 ```sh
 ./getData.sh
 ```
 
-### 3) Run benchmarks from repository root
+### 3. Run benchmarks
 
-**YAML-driven (recommended):**
-
-Copy the template and edit it:
-```sh
-cp scripts/benchmark_template.yaml my_bench.yaml
-# edit my_bench.yaml (engine, datasets, seeds, GPUs, ...)
-./run.sh my_bench.yaml
-```
-
-**Single run (foreground, legacy CLI):**
-```sh
-./run.sh single --savedir results/dock_v2 --bin ud2 --version 2 --type molecular_docking --device 0 --seed 123
-```
-
-**Batch run (3 devices/seeds in background, legacy CLI):**
-```sh
-./run.sh batch results/dock_v2 0 1 2 --bin ud2 --version 2 --type molecular_docking
-```
-
----
-
-## Benchmark Scripts
-
-Recommended root-level entry scripts:
-
-- `run.sh`: unified benchmark runner (`<config.yaml>` / `single` / `batch`)
-- `analyze.sh`: merge benchmark outputs and optionally generate quick plots
-
-### `run.sh` - Unified Benchmark Runner
-
-#### YAML Config Mode (Recommended)
-
-Create a YAML config file based on the template (see `scripts/benchmark_template.yaml`):
+Generate a config from the built-in template, edit it, then run:
 
 ```sh
-cp scripts/benchmark_template.yaml my_bench.yaml
-# edit my_bench.yaml
-./run.sh my_bench.yaml
+./run.sh dump_config my_bench.yaml   # creates my_bench.yaml from template
+vim my_bench.yaml                    # set engine, datasets, seeds, GPUs, etc.
+./run.sh my_bench.yaml               # launch benchmarks
 ```
 
 The YAML config controls engine version/binary, benchmark type, datasets, output directory,
-and run definitions (seed + GPU per repeat). Runs on the same GPU execute sequentially
-for accurate timing; runs on different GPUs execute in parallel.
+and per-run seed + GPU assignment. Runs on the same GPU execute sequentially for accurate
+timing; runs on different GPUs execute in parallel.
 
-#### Legacy CLI Modes
+<details>
+<summary>Legacy CLI modes</summary>
 
-**Molecular Docking:**
 ```sh
-# Uni-Dock V2 with receptor without water
-./run.sh single --version 2 --bin ud2 --type molecular_docking --nowater --device 1 --savedir my_res --seed 121
+# Single run (foreground)
+./run.sh single --savedir results/dock_v2 --bin ud2 --version 2 \
+  --type molecular_docking --device 0 --seed 123
 
-# Uni-Dock V2 with receptor containing water (default)
-./run.sh single --version 2 --bin ud2 --type molecular_docking --device 1 --savedir my_res --seed 121
-
-# Uni-Dock V1 with receptor containing water
-./run.sh single --version 1 --bin ud1 --type molecular_docking --device 1 --savedir my_res --seed 121
-```
-
-**Virtual Screening:**
-```sh
-./run.sh single --version 2 --bin ud2 --type virtual_screening --device 0 --savedir res_vs --seed 122
-```
-
-**Batch (3 seeds, 3 GPUs):**
-```sh
+# Batch run (3 seeds × 3 GPUs, background)
 ./run.sh batch results/dock_v2 0 1 2 --bin ud2 --version 2 --type molecular_docking
 ```
 
-### `analyze.sh` - Result Aggregation and Quick Plotting
+</details>
 
-After running one or multiple benchmark jobs, merge outputs and generate quick analysis files:
+### 4. Analyze results
 
 ```sh
-./analyze.sh --runs results/dock_v2_1 results/dock_v2_2 results/dock_v2_3 --output analysis/dock --name dock_v2
+./analyze.sh --runs results/dock_v2_1 results/dock_v2_2 results/dock_v2_3 \
+  --output analysis/dock --name dock_v2
 
-# Skip plotting and only export merged tables
+# Merge tables only, skip plots
 ./analyze.sh --runs results/screen_v2 --output analysis/screen --name screen_v2 --no-plot
 ```
 
-Generated outputs include:
-- `<name>_metrics_merged.csv`
-- `<name>_res_merged.csv`
-- optional PNG plots (if matplotlib is available)
-
-### Advanced/Legacy Entry Points
-
-- `scripts/run_test.py`: single benchmark entry
-- `scripts/submit_udbench.sh`: batch submission helper
-- `scripts/show_udbench.ipynb`: notebook-based analysis and visualization
+Outputs: `<name>_metrics_merged.csv`, `<name>_res_merged.csv`, and optional PNG plots.
 
