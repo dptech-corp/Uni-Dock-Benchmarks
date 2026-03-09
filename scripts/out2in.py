@@ -3,7 +3,7 @@
 Convert ud2 output JSON file into input JSON file.
 """
 import os
-from utils.myio import *
+from utils.myio import read_json, write_json
 import argparse
 
 

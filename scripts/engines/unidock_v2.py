@@ -10,46 +10,27 @@ from utils.calc_rmsd import calc_rmsd, tran_json_to_sdf
 from utils.myio import read_json, write_yaml
 
 
-# File path formats for Uni-Dock V2, keyed by dataset name.
-# Molecular docking datasets use {0} = fn_suffix (water flag), {1} = pdb_id.
-# Virtual screening datasets have fixed paths.
-FMT_UD2 = {
-    "Astex": {
-        "sdf": "ligand_prepared.sdf",
-        "json": "unidock2_protein{0}/{1}_unidock2.json",
-        "out": "{1}_unidock2_1.json",
-    },
-    "CASF2016": {
-        "sdf": "ligand_prepared.sdf",
-        "json": "unidock2_protein{0}/{1}_unidock2.json",
-        "out": "{1}_unidock2_1.json",
-    },
-    "PoseBuster": {
-        "sdf": "ligand_prepared.sdf",
-        "json": "unidock2_protein{0}/{1}_unidock2.json",
-        "out": "{1}_unidock2_1.json",
-    },
-    "D4": {
-        "active": "unidock2_protein/actives_unidock2.json",
-        "inactive": "unidock2_protein/inactives_unidock2.json",
-    },
-    "GBA": {
-        "active": "unidock2_protein/actives_unidock2.json",
-        "inactive": "unidock2_protein/inactives_unidock2.json",
-    },
-    "NSP3": {
-        "active": "unidock2_protein/actives_unidock2.json",
-        "inactive": "unidock2_protein/inactives_unidock2.json",
-    },
-    "PPARG": {
-        "active": "unidock2_protein/actives_unidock2.json",
-        "inactive": "unidock2_protein/inactives_unidock2.json",
-    },
-    "sigma2": {
-        "active": "unidock2_protein/actives_unidock2.json",
-        "inactive": "unidock2_protein/inactives_unidock2.json",
-    },
+# Default file-path templates for Uni-Dock V2.
+# Molecular docking: {0} = fn_suffix (water flag), {1} = pdb_id.
+# Virtual screening: fixed paths.
+# New datasets following the same convention need no code change — just add the
+# dataset directory under data/.
+_UD2_DOCK_FMT = {
+    "sdf": "ligand_prepared.sdf",
+    "json": "unidock2_protein{0}/{1}_unidock2.json",
+    "out": "{1}_unidock2_1.json",
 }
+
+_UD2_SCREEN_FMT = {
+    "active": "unidock2_protein/actives_unidock2.json",
+    "inactive": "unidock2_protein/inactives_unidock2.json",
+}
+
+_DOCK_DATASETS = ("Astex", "CASF2016", "PoseBuster")
+_SCREEN_DATASETS = ("D4", "GBA", "NSP3", "PPARG", "sigma2")
+
+FMT_UD2 = {d: _UD2_DOCK_FMT for d in _DOCK_DATASETS}
+FMT_UD2.update({d: _UD2_SCREEN_FMT for d in _SCREEN_DATASETS})
 
 
 class UniDockV2Engine(DockingEngine):
@@ -124,7 +105,7 @@ class UniDockV2Engine(DockingEngine):
         fp_ligand_ref = os.path.join(dp_data_id, f"{id_pdb}_ligand.sdf")
         fp_ligand_input = os.path.join(
             dp_data_id,
-            FMT_UD2[dataset]["sdf"].format(self.config.fn_suffix, id_pdb),
+            FMT_UD2[dataset]["sdf"],
         )
         fp_res_json = os.path.join(
             dp_res_case,

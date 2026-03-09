@@ -1,5 +1,6 @@
 # Downloaded benchmark data
 data/
+results/
 tmp_data.zip
 tmp_data_extract/
 *.png

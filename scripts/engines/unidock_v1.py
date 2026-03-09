@@ -1,58 +1,38 @@
 """Uni-Dock V1 engine implementation."""
 
 import os
+import re
 from typing import List, Tuple
 
 from engines.base import DockingEngine
 from utils.calc_rmsd import calc_rmsd
 from utils.myio import read_text, write_text
 
+_ENERGY_RE = re.compile(r'ENERGY=([-\d.eE+]+)')
 
-# File path formats for Uni-Dock V1, keyed by dataset name.
-# Molecular docking datasets use {0} = fn_suffix (water flag), {1} = pdb_id.
-# Virtual screening datasets have fixed paths (no per-PDB variation).
-FMT_UD1 = {
-    "Astex": {
-        "sdf": "unidock1_protein{0}/ligand_prepared_torsion_tree.sdf",
-        "pdb": "unidock1_protein{0}/receptor.pdbqt",
-        "out": "ligand_prepared_torsion_tree_out.sdf",
-    },
-    "CASF2016": {
-        "sdf": "unidock1_protein{0}/ligand_prepared_torsion_tree.sdf",
-        "pdb": "unidock1_protein{0}/receptor.pdbqt",
-        "out": "ligand_prepared_torsion_tree_out.sdf",
-    },
-    "PoseBuster": {
-        "sdf": "unidock1_protein{0}/ligand_prepared_torsion_tree.sdf",
-        "pdb": "unidock1_protein{0}/receptor.pdbqt",
-        "out": "ligand_prepared_torsion_tree_out.sdf",
-    },
-    "D4": {
-        "active": "unidock1_protein/actives_prepared_torsion_tree.sdf",
-        "inactive": "unidock1_protein/inactives_prepared_torsion_tree.sdf",
-        "pdb": "unidock1_protein/receptor.pdbqt",
-    },
-    "GBA": {
-        "active": "unidock1_protein/actives_prepared_torsion_tree.sdf",
-        "inactive": "unidock1_protein/inactives_prepared_torsion_tree.sdf",
-        "pdb": "unidock1_protein/receptor.pdbqt",
-    },
-    "NSP3": {
-        "active": "unidock1_protein/actives_prepared_torsion_tree.sdf",
-        "inactive": "unidock1_protein/inactives_prepared_torsion_tree.sdf",
-        "pdb": "unidock1_protein/receptor.pdbqt",
-    },
-    "PPARG": {
-        "active": "unidock1_protein/actives_prepared_torsion_tree.sdf",
-        "inactive": "unidock1_protein/inactives_prepared_torsion_tree.sdf",
-        "pdb": "unidock1_protein/receptor.pdbqt",
-    },
-    "sigma2": {
-        "active": "unidock1_protein/actives_prepared_torsion_tree.sdf",
-        "inactive": "unidock1_protein/inactives_prepared_torsion_tree.sdf",
-        "pdb": "unidock1_protein/receptor.pdbqt",
-    },
+
+# Default file-path templates for Uni-Dock V1.
+# Molecular docking: {0} = fn_suffix (water flag), {1} = pdb_id.
+# Virtual screening: fixed paths (no per-PDB variation).
+# New datasets following the same convention need no code change — just add the
+# dataset directory under data/.
+_UD1_DOCK_FMT = {
+    "sdf": "unidock1_protein{0}/ligand_prepared_torsion_tree.sdf",
+    "pdb": "unidock1_protein{0}/receptor.pdbqt",
+    "out": "ligand_prepared_torsion_tree_out.sdf",
 }
+
+_UD1_SCREEN_FMT = {
+    "active": "unidock1_protein/actives_prepared_torsion_tree.sdf",
+    "inactive": "unidock1_protein/inactives_prepared_torsion_tree.sdf",
+    "pdb": "unidock1_protein/receptor.pdbqt",
+}
+
+_DOCK_DATASETS = ("Astex", "CASF2016", "PoseBuster")
+_SCREEN_DATASETS = ("D4", "GBA", "NSP3", "PPARG", "sigma2")
+
+FMT_UD1 = {d: _UD1_DOCK_FMT for d in _DOCK_DATASETS}
+FMT_UD1.update({d: _UD1_SCREEN_FMT for d in _SCREEN_DATASETS})
 
 
 class UniDockV1Engine(DockingEngine):
@@ -96,7 +76,7 @@ class UniDockV1Engine(DockingEngine):
         fp_ligand_ref = os.path.join(dp_data_id, f"{id_pdb}_ligand.sdf")
         fp_ligand_out = os.path.join(
             dp_res_case,
-            FMT_UD1[dataset]["out"].format(self.config.fn_suffix, id_pdb),
+            FMT_UD1[dataset]["out"],
         )
         return calc_rmsd(fp_ligand_ref, fp_ligand_out)
 
@@ -154,13 +134,10 @@ class UniDockV1Engine(DockingEngine):
             for fn in [i for i in os.listdir(dp) if i.endswith(".sdf")]:
                 fp_sdf = os.path.join(dp, fn)
                 ss = read_text(fp_sdf)
-                ligand_name = fn.strip()[:-8]
-                energy = float(
-                    ss.strip()
-                    .split("$$$$")[0]
-                    .split("ENERGY=")[-1]
-                    .split("LOWER_BOUND=")[0]
-                    .strip()
-                )
+                stem, _ = os.path.splitext(fn)
+                ligand_name = stem.removesuffix("_out")
+                first_block = ss.split("$$$$")[0]
+                match = _ENERGY_RE.search(first_block)
+                energy = float(match.group(1))
                 results.append((ligand_name, energy, active))
         return results

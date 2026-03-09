@@ -42,6 +42,21 @@ class BenchmarkConfig:
         """Get binary path (user-provided or default)."""
         return self.bin if self.bin is not None else self.default_bin
     
+    @classmethod
+    def from_yaml_run(cls, yaml_cfg: dict, run_entry: dict,
+                      rootdir: str, savedir: str) -> "BenchmarkConfig":
+        """Construct from a parsed YAML benchmark config and one run entry."""
+        return cls(
+            version=yaml_cfg["engine"]["version"],
+            device_id=run_entry["device"],
+            seed=run_entry["seed"],
+            bin=yaml_cfg["engine"].get("binary"),
+            nowater=yaml_cfg["benchmark"].get("nowater", False),
+            type=yaml_cfg["benchmark"]["type"],
+            rootdir=rootdir,
+            savedir=savedir,
+        )
+
     def print_config(self) -> str:
         """
         打印 BenchmarkConfig 对象的所有参数。
