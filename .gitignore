@@ -1,6 +1,7 @@
 # Downloaded benchmark data
 data/
 results/
+analysis/
 tmp_data.zip
 tmp_data_extract/
 *.png
@@ -9,6 +10,7 @@ tmp_data_extract/
 *.ZIP
 _test_*
 *.log
+*.ipynb
 
 # Python cache/artifacts
 __pycache__/

@@ -1,70 +1,72 @@
 # ============================================================
 # Uni-Dock Benchmark Configuration Template
 # ============================================================
-# Copy this file, edit the values, and run:
 #
-#   ./run.sh your_config.yaml
+# Two formats are supported:
+#
+#   1. Multi-task (this file):  top-level "tasks" list.
+#      Tasks execute SERIALLY (one after another).
+#
+#   2. Legacy single-task:  top-level engine/benchmark/output/runs
+#      (still fully supported — treated as one task internally).
+#
+# Run with:
+#   ./run.sh your_config.yaml            # background (nohup)
+#   ./run.sh your_config.yaml --fg       # foreground (debugging)
 #
 # ============================================================
 
-# --- Engine ---
-# Uni-Dock engine settings.
-engine:
-  version: 2                           # Uni-Dock version: 1 | 2
-  binary: "ud2"                        # Path or name of the docking binary
+tasks:
 
-# --- Benchmark ---
-# What to benchmark.
-benchmark:
-  type: "molecular_docking"            # "molecular_docking" | "virtual_screening"
-  nowater: false                       # true = protein-only receptor (molecular_docking only)
-  datasets: null                       # null = all datasets for the given type
-                                       # Or specify a list:
-                                       #   ["Astex", "CASF2016", "PoseBuster"]
-                                       #
-                                       # Available molecular_docking datasets:
-                                       #   Astex, CASF2016, PoseBuster
-                                       #
-                                       # Available virtual_screening datasets:
-                                       #   D4, GBA, NSP3, PPARG, sigma2
+  # ---------------------------------------------------------
+  # Task 1 — Virtual Screening, with water
+  # ---------------------------------------------------------
+  - engine:
+      version: 2                         # Uni-Dock version: 1 | 2
+      binary: "ud2"                      # Path or name of the docking binary
 
-# --- Output ---
-output:
-  savedir: "results/my_benchmark"      # Base output directory
-                                       # Each run saves to: <savedir>/run_<i>/
+    benchmark:
+      type: "virtual_screening"          # "molecular_docking" | "virtual_screening"
+      nowater: false                     # true = protein-only receptor
+      datasets: null                     # null = all datasets for the given type
+                                         # Or specify a list:
+                                         #   ["D4", "GBA", "NSP3", "PPARG", "sigma2"]
 
-# --- Runs ---
-# Each entry = one complete benchmark (all specified datasets, one seed, one GPU).
-#
-# Scheduling rules:
-#   - Runs on the SAME device  -> SEQUENTIAL (ensures accurate GPU timing)
-#   - Runs on DIFFERENT devices -> PARALLEL
-#
-# Examples:
-#
-#   3 GPUs, fully parallel:
-#     runs:
-#       - { seed: 121, device: 0 }
-#       - { seed: 122, device: 1 }
-#       - { seed: 123, device: 2 }
-#
-#   1 GPU, fully sequential:
-#     runs:
-#       - { seed: 121, device: 0 }
-#       - { seed: 122, device: 0 }
-#       - { seed: 123, device: 0 }
-#
-#   2 GPUs, mixed (2 sequential per GPU, 2 groups in parallel):
-#     runs:
-#       - { seed: 121, device: 0 }
-#       - { seed: 122, device: 0 }
-#       - { seed: 123, device: 1 }
-#       - { seed: 124, device: 1 }
-#
-runs:
-  - seed: 121
-    device: 0
-  - seed: 122
-    device: 1
-  - seed: 123
-    device: 2
+    # output.savedir is OPTIONAL.
+    # If omitted, auto-generated as: results/<binary_name>_<dock|screen>_<water|nowater>
+    # e.g. results/ud2_screen_water
+    output:
+      savedir: "results/my_screen_water"
+
+    # Scheduling rules (same as before):
+    #   - Same device  → SEQUENTIAL
+    #   - Different devices → PARALLEL
+    runs:
+      - seed: 121
+        device: 0
+      - seed: 122
+        device: 1
+      - seed: 123
+        device: 2
+
+  # ---------------------------------------------------------
+  # Task 2 — Molecular Docking, no water  (savedir auto-generated)
+  # ---------------------------------------------------------
+  - engine:
+      version: 2
+      binary: "ud2"
+
+    benchmark:
+      type: "molecular_docking"
+      nowater: true
+      datasets: null                     # Available: Astex, CASF2016, PoseBuster
+
+    # output section omitted → savedir auto-generated as results/ud2_dock_nowater
+
+    runs:
+      - seed: 121
+        device: 0
+      - seed: 122
+        device: 1
+      - seed: 123
+        device: 2

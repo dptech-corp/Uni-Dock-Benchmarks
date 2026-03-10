@@ -7,15 +7,27 @@ ROOT_DIR="$SCRIPT_DIR"
 show_help() {
   cat << 'EOF'
 Usage:
-  ./analyze.sh --runs <RUN_DIR_1> [RUN_DIR_2 ...] [--output <DIR>] [--name <PREFIX>] [--no-plot]
+  ./analyze.sh --runs <DIR> [<DIR> ...] [--name <LABEL> [<LABEL> ...]] [--output <DIR>] [--mode <MODE>] [--no-plot]
 
 Description:
-  Merge benchmark outputs (`metrics.csv` and `res.csv`) from multiple runs,
-  then export merged CSV files and optional quick comparison figures.
+  Auto-discover run sub-directories (run_*) under one or more parent
+  directories, merge metrics.csv from all runs, and produce a benchmark
+  comparison figure (same style as show_udbench.ipynb's plot_benchmark).
+  Multiple --runs directories are plotted side-by-side for cross-version
+  comparison.
+
+Options:
+  --runs    One or more parent directories containing run_* sub-dirs (required).
+  --name    Legend labels, one per --runs directory; the first is also used
+            as the output file prefix (default: summary).
+  --output  Output directory for merged table and plot (default: analysis).
+  --mode    Benchmark mode: docking, screening, or auto (default: auto).
+  --no-plot Disable plot generation and export the table only.
 
 Examples:
-  ./analyze.sh --runs results/dock_v2_1 results/dock_v2_2 results/dock_v2_3 --output analysis/dock --name dock_v2
-  ./analyze.sh --runs results/screen_v2 --output analysis/screen --name screen_v2 --no-plot
+  ./analyze.sh --runs results/ud2_v055_dock/ --name Uni-Dock2
+  ./analyze.sh --runs results/ud2_v055_dock/ results/ud2_v060_dock/ --name UD2-v0.5.5 UD2-v0.6.0
+  ./analyze.sh --runs results/ud2_v055_screen/ --name Uni-Dock2 --mode screening
 EOF
 }
 
