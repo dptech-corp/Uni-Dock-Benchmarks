@@ -96,11 +96,19 @@ def run_benchmark_molecular_docking(engine: DockingEngine, rerun: bool = True, d
                     dp_res_case = os.path.join(dp_res_mode, id_pdb)
                     os.makedirs(dp_res_case, exist_ok=True)
 
-                    cmd = engine.build_dock_command(
-                        dp_data_id, dataset, id_pdb,
-                        data_center[id_pdb], dp_res_case, search_mode,
-                    )
-                    returncode, cost, stdout, stderr = run_command(cmd)
+                    if hasattr(engine, "execute_dock_case") and callable(
+                        getattr(engine, "execute_dock_case", None)
+                    ):
+                        returncode, cost = engine.execute_dock_case(
+                            dp_data_id, dataset, id_pdb,
+                            data_center[id_pdb], dp_res_case, search_mode,
+                        )
+                    else:
+                        cmd = engine.build_dock_command(
+                            dp_data_id, dataset, id_pdb,
+                            data_center[id_pdb], dp_res_case, search_mode,
+                        )
+                        returncode, cost, stdout, stderr = run_command(cmd)
 
                     rmsds = engine.compute_dock_rmsd(
                         dp_data_id, dataset, id_pdb, dp_res_case,

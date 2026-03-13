@@ -22,6 +22,7 @@ Usage:
 import argparse
 import logging
 import os
+import signal
 import shutil
 import sys
 from collections import defaultdict
@@ -40,9 +41,15 @@ from utils.config import BenchmarkConfig
 
 def _auto_savedir(engine_cfg: dict, benchmark_cfg: dict) -> str:
     """Generate ``results/<binary>_<dock|screen>_<water|nowater>``."""
+    version = engine_cfg.get("version", 2)
     binary = engine_cfg.get("binary")
     if not binary:
-        binary = "ud2" if engine_cfg.get("version", 2) == 2 else "ud1"
+        if version == 1:
+            binary = "ud1"
+        elif version == 2:
+            binary = "ud2"
+        else:
+            binary = "ud2_api"
     binary_name = os.path.basename(binary)
 
     type_short = (
@@ -97,9 +104,9 @@ def validate_task(task_cfg: dict, task_idx: int = 0) -> None:
     engine = task_cfg["engine"]
     if "version" not in engine:
         raise ValueError(f"{tag}: engine.version is required")
-    if engine["version"] not in (1, 2):
+    if engine["version"] not in (1, 2, 3):
         raise ValueError(
-            f"{tag}: engine.version must be 1 or 2, got {engine['version']}"
+            f"{tag}: engine.version must be 1, 2 or 3, got {engine['version']}"
         )
 
     benchmark = task_cfg["benchmark"]
@@ -239,6 +246,19 @@ def main() -> int:
     if args.print_savedir:
         print(tasks[0]["output"]["savedir"])
         return 0
+
+    # Become a new process group leader so that `kill -- -<PID>` can
+    # terminate the entire tree (orchestrator + all children) at once.
+    os.setpgrp()
+
+    def _sigterm_handler(signum, frame):
+        """Forward termination signal to the whole process group."""
+        logging.warning("Received signal %d, terminating process group …", signum)
+        os.killpg(os.getpgrp(), signal.SIGTERM)
+        sys.exit(128 + signum)
+
+    signal.signal(signal.SIGTERM, _sigterm_handler)
+    signal.signal(signal.SIGINT, _sigterm_handler)
 
     # --- Validate all tasks up-front ---
     for idx, task_cfg in enumerate(tasks):

@@ -99,10 +99,10 @@ def run_benchmark_cli():
     )
     parser.add_argument("--savedir", type=str, required=True,
                         help="Saved directory for the results")
-    parser.add_argument("--bin", type=str, required=True,
-                        help="Binary file of the docking tool")
-    parser.add_argument("--version", type=int, choices=[1, 2], required=True,
-                        help="Version of the Uni-Dock engine binary, 1 or 2")
+    parser.add_argument("--bin", type=str, default=None,
+                        help="Binary path (required for v1/v2; for v3 docking uses API, screening needs ud2 binary)")
+    parser.add_argument("--version", type=int, choices=[1, 2, 3], required=True,
+                        help="Version of the Uni-Dock engine: 1, 2 (binary) or 3 (ud2_api)")
     parser.add_argument("--type", type=str, required=True,
                         choices=["molecular_docking", "virtual_screening"],
                         help="Type of the benchmark")

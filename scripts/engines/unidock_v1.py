@@ -8,7 +8,7 @@ from engines.base import DockingEngine
 from utils.calc_rmsd import calc_rmsd
 from utils.myio import read_text, write_text
 
-_ENERGY_RE = re.compile(r'ENERGY=([-\d.eE+]+)')
+_ENERGY_RE = re.compile(r'ENERGY=\s*([-\d.eE+]+)')
 
 
 # Default file-path templates for Uni-Dock V1.

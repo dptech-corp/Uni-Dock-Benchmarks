@@ -381,19 +381,24 @@ def plot_benchmark(
     str_water = ""
     if mode == "docking":
         last_dir = result_dirs[-1] if isinstance(result_dirs[-1], str) else result_dirs[-1][0]
-        str_water = "With Water"
         try:
-            out_files = [fn for fn in os.listdir(last_dir) if fn.endswith(".out")]
-            if out_files:
-                out_file = os.path.join(last_dir, out_files[0])
-                with open(out_file, "r") as f:
-                    content = f.readlines()
-                for line in content:
-                    if ("No Water:" in line) and ("True" in line):
-                        str_water = "Without Water"
-                        break
+            import yaml as _yaml
+            fp_yaml = os.path.join(last_dir, "benchmark.yaml")
+            if os.path.exists(fp_yaml):
+                with open(fp_yaml, "r") as f:
+                    cfg = _yaml.safe_load(f)
+                nowater = cfg.get("benchmark", {}).get("nowater", False)
+                str_water = "Without Water" if nowater else "With Water"
+            elif "nowater" in os.path.basename(last_dir):
+                str_water = "Without Water"
+            else:
+                str_water = "With Water"
         except Exception as e:
             logging.warning("Could not detect water status: %s", e)
+            if "nowater" in os.path.basename(last_dir):
+                str_water = "Without Water"
+            else:
+                str_water = "With Water"
 
     title = title_prefix
     if str_water:

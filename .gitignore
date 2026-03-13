@@ -1,7 +1,11 @@
+# Root-level YAML configs (keep sub-directory YAMLs tracked)
+/*.yaml
+
 # Downloaded benchmark data
 data/
 results/
 analysis/
+profiling/
 tmp_data.zip
 tmp_data_extract/
 *.png

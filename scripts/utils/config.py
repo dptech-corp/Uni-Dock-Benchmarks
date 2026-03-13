@@ -17,7 +17,7 @@ class BenchmarkConfig:
     All runtime settings should be passed through this config object
     instead of using global variables.
     """
-    version: int = 1  # Uni-Dock version: 1 or 2
+    version: int = 1  # Uni-Dock version: 1, 2 (binary) or 3 (ud2_api)
     device_id: int = 0  # GPU device ID
     seed: int = 10000  # Random seed
     bin: Optional[str] = None  # Binary path (default based on version)
@@ -35,7 +35,11 @@ class BenchmarkConfig:
     @property
     def default_bin(self) -> str:
         """Default binary path based on version."""
-        return "ud1" if self.version == 1 else "ud2"
+        if self.version == 1:
+            return "ud1"
+        if self.version == 2:
+            return "ud2"
+        return "ud2_api"
     
     @property
     def binary(self) -> str:

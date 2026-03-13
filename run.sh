@@ -15,6 +15,9 @@ Usage:
   # YAML-driven benchmark (recommended)
   ./run.sh <config.yaml> [--fg]
 
+  # Stop a running benchmark (kills entire process tree)
+  ./run.sh stop <PID>
+
   # Single benchmark run (legacy CLI)
   ./run.sh single --savedir <DIR> --bin <BIN> --version <1|2> --type <molecular_docking|virtual_screening> [--device ID] [--seed SEED] [--nowater] [--dataset NAME] [--fg]
 
@@ -28,6 +31,7 @@ Examples:
   ./run.sh dump_config my_bench.yaml        # create config, then edit it
   ./run.sh my_bench.yaml                    # run in background (nohup)
   ./run.sh my_bench.yaml --fg               # run in foreground (for debugging)
+  ./run.sh stop 12345                        # stop the running benchmark by PID
   ./run.sh single --savedir results/dock_v2 --bin ud2 --version 2 --type molecular_docking --device 0 --seed 123
   ./run.sh batch results/dock_v2 0 1 2 --bin ud2 --version 2 --type molecular_docking
 EOF
@@ -93,6 +97,17 @@ if [[ "$MODE" == *.yaml ]] || [[ "$MODE" == *.yml ]]; then
 fi
 
 case "$MODE" in
+  stop)
+    PID="${1:?Usage: ./run.sh stop <PID>}"
+    if kill -0 "$PID" 2>/dev/null; then
+      echo "Stopping process group (PID $PID) ..."
+      kill -- -"$PID" 2>/dev/null || kill "$PID" 2>/dev/null
+      echo "Done. All processes terminated."
+    else
+      echo "Process $PID is not running (already finished or killed)."
+    fi
+    exit 0
+    ;;
   dump_config)
     DEST="${1:-benchmark.yaml}"
     cp "${TEMPLATE_YAML}" "${DEST}"
