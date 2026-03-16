@@ -126,7 +126,7 @@ class UniDockV2Engine(DockingEngine):
             os.makedirs(dp, exist_ok=True)
             commands.append(self._build_ud2_command(
                 fp_json, data_center, dp, search_mode,
-                use_log=False, center_format="virtual_screening",
+                use_log=True, center_format="virtual_screening",
             ))
         return commands
 
