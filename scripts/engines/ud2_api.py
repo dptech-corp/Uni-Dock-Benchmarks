@@ -71,7 +71,7 @@ class UniDockV2APIEngine(DockingEngine):
             sz = float(data_center["size_z"])
 
         hw = cfg.get("Hardware", {})
-        return dict(
+        kw = dict(
             center_x=cx, center_y=cy, center_z=cz,
             size_x=sx, size_y=sy, size_z=sz,
             task=sett.get("task", "screen"),
@@ -90,6 +90,9 @@ class UniDockV2APIEngine(DockingEngine):
             gpu_device_id=self.config.device_id,
             max_gpu_mem=hw.get("max_gpu_memory", 0),
         )
+        if self.config.runner_args:
+            kw.update(self.config.runner_args)
+        return kw
 
     def _run_pipeline(self, fp_json: str, output_dir: str,
                       data_center: dict, search_mode: str,
