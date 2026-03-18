@@ -100,16 +100,24 @@ def run_benchmark_virtual_screening(engine: DockingEngine, rerun: bool = True, d
                 fp_center = os.path.join(dp_data_dataset, "docking_grid.json")
                 data_center = read_json(fp_center)
 
-                list_cmd = engine.build_screen_commands(
-                    dp_data_dataset, dataset, data_center,
-                    dp_res_case, search_mode,
-                )
-                total_cost = 0.0
-                for cmd in list_cmd:
-                    returncode, cost, stdout, stderr = run_command(cmd)
-                    total_cost += cost
-                    if returncode != 0:
-                        break  # Stop if any command fails
+                if hasattr(engine, "execute_screen_cases") and callable(
+                    getattr(engine, "execute_screen_cases", None)
+                ):
+                    returncode, total_cost = engine.execute_screen_cases(
+                        dp_data_dataset, dataset, data_center,
+                        dp_res_case, search_mode,
+                    )
+                else:
+                    list_cmd = engine.build_screen_commands(
+                        dp_data_dataset, dataset, data_center,
+                        dp_res_case, search_mode,
+                    )
+                    total_cost = 0.0
+                    for cmd in list_cmd:
+                        returncode, cost, stdout, stderr = run_command(cmd)
+                        total_cost += cost
+                        if returncode != 0:
+                            break  # Stop if any command fails
 
                 affinity_results = engine.parse_screen_affinity(dp_res_case)
                 df_res_mode = pd.DataFrame(

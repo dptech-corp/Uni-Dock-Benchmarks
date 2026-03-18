@@ -56,6 +56,12 @@ class UniDockV2Engine(DockingEngine):
         config_ud2["Advanced"]["seed"] = self.config.seed
         config_ud2["Settings"]["search_mode"] = search_mode
 
+        for key, value in self.config.runner_args.items():
+            for section in ("Advanced", "Settings", "Hardware"):
+                if key in config_ud2.get(section, {}):
+                    config_ud2[section][key] = value
+                    break
+
         if center_format == "molecular_docking":
             config_ud2["Settings"]["center_x"] = data_center['X']
             config_ud2["Settings"]["center_y"] = data_center['Y']
@@ -126,7 +132,7 @@ class UniDockV2Engine(DockingEngine):
             os.makedirs(dp, exist_ok=True)
             commands.append(self._build_ud2_command(
                 fp_json, data_center, dp, search_mode,
-                use_log=False, center_format="virtual_screening",
+                use_log=True, center_format="virtual_screening",
             ))
         return commands
 
