@@ -6,6 +6,7 @@ data/
 results/
 analysis/
 profiling/
+ud2rescore/
 tmp_data.zip
 tmp_data_extract/
 *.png
@@ -15,6 +16,7 @@ tmp_data_extract/
 _test_*
 *.log
 *.ipynb
+
 
 # Python cache/artifacts
 __pycache__/
